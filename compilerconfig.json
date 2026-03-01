@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/main.css",
+    "inputFile": "wwwroot/scss/main.scss"
+  },
+    {
+    "outputFile": "wwwroot/css/index.css",
+    "inputFile": "wwwroot/scss/anasayfa/index.scss"
+  }
+]

@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@(ViewData["Title"] ?? "HB Liquid Arts Collective - Butik Miksoloji & Danışmanlık")</title>
+    <meta name="description" content="@(ViewData["Description"] ?? "Sıradan deneyimleri olağanüstü sıvı sanatına dönüştürüyoruz.")" />
+    <meta name="keywords" content="@(ViewData["Keywords"] ?? "hb, liquid arts, collective, mixology")" />
+    <meta name="author" content="HB Liquid Arts Collective" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="animated-bg">
+
+    <header class="main-header" id="siteHeader">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="/">
+                    <div class="brand-logo">HB</div>
+                    <div class="brand-text">
+                        <span class="brand-light">Liquid Arts</span>
+                        <span class="brand-collective">Collective</span>
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                    <ul class="navbar-nav align-items-center gap-3">
+                        <li class="nav-item"><a class="nav-link" href="/hizmetlerimiz">Hizmetlerimiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/danismanliklar">Danışmanlıklar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/projelerimiz">Projelerimiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/galeri">Galeri</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/hakkimizda">Hakkımızda</a></li>
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn-cta" href="#contact-form-section">Fiyat Al</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row pt-5 pb-4 footer-top">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-logo-area">
+                        <div class="brand-logo">HB</div>
+                        <div class="brand-text">
+                            <span class="brand-light">Liquid Arts</span>
+                            <span class="brand-gold">Collective</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">2020'den beri craft kokteyl sanatını ve içki eğitimini yükseltiyoruz.</p>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p>&copy; @DateTime.Now.Year HB Liquid Arts Kolektifi. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/905000000000" target="_blank" class="whatsapp-float" aria-label="WhatsApp İletişim">
+        <span class="wa-icon"></span>
+        <span class="wa-pulse"></span>
+    </a>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/main.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

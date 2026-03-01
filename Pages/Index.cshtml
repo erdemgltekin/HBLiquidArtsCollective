@@ -1,0 +1,220 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Ana Sayfa";
+    ViewData["Description"] = "Hakan Balta ile HB Liquid Arts Collective. Butik içecek danışmanlığı, miksoloji akademisi, catering hizmetleri.";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+}
+
+@* Hero Section *@
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <span class="badge-premium">MİKOLOJİ & DANIŞMANLIK</span>
+
+                    <h1 class="hero-title">
+                        HB Liquid Arts <br>
+                        <span class="text-gold">Collective</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Butik içecek danışmanlığı ve miksoloji akademisi. Sıradan deneyimleri olağanüstü sıvı sanatına dönüştürüyoruz.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#" class="btn-primary-gold">Fiyat Teklifi Al</a>
+                        <a href="#" class="btn-outline-gold">Portfolyoyu Görüntüle</a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Yıl Deneyim</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Etkinlik</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1K+</span>
+                            <span class="stat-label">Öğrenci</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="hero-image-container">
+                    <img src="~/images/hakan-balta.jpg" alt="Hakan Balta" class="hero-profile-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@* Event Section *@
+<section class="events-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Yaklaşan Etkinlikler</h2>
+            <p class="section-subtitle">Miksoloji deneyiminizi geliştirmek için özel workshop ve tadım etkinliklerimize katılın</p>
+        </div>
+
+        <div class="slider-wrapper">
+            @* Navigasyon Okları - Arka plansız, saf ikon *@
+            <button class="slider-nav-btn prev" aria-label="Geri">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="events-slider">
+
+                @* Kart 1: Kokteyl Masterclass *@
+                <div class="event-card">
+                    <div class="card-image-wrapper">
+                        <img src="/img/event-masterclass.jpg" alt="Kokteyl Masterclass">
+                        <span class="badge-category">Workshop</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge-capacity">8 Kişilik</span>
+                        <h3 class="event-name">Kokteyl Masterclass</h3>
+                        <p class="event-desc">Klasik kokteyllerin modern yorumlarını öğrenin. Hands-on deneyim ile 8 farklı imza kokteyli.</p>
+                        <div class="event-details">
+                            <div class="detail-item"><i class="bi bi-calendar3"></i><span>15 Mart 2026</span></div>
+                            <div class="detail-item"><i class="bi bi-clock"></i><span>19:00 - 22:00</span></div>
+                            <div class="detail-item"><i class="bi bi-geo-alt"></i><span>HB Studio, İstanbul</span></div>
+                        </div>
+                        <a href="#" class="btn-register">Kayıt Ol <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                @* Kart 2: Craft Spirit Tadımı *@
+                <div class="event-card">
+                    <div class="card-image-wrapper">
+                        <img src="/img/event-tasting.jpg" alt="Craft Spirit Tadımı">
+                        <span class="badge-category">Tadım</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge-capacity">12 Kişilik</span>
+                        <h3 class="event-name">Craft Spirit Tadımı</h3>
+                        <p class="event-desc">Dünya'nın farklı bölgelerinden özenle seçilmiş craft spirit'leri keşfedin.</p>
+                        <div class="event-details">
+                            <div class="detail-item"><i class="bi bi-calendar3"></i><span>22 Mart 2026</span></div>
+                            <div class="detail-item"><i class="bi bi-clock"></i><span>18:00 - 21:00</span></div>
+                            <div class="detail-item"><i class="bi bi-geo-alt"></i><span>HB Tasting Room</span></div>
+                        </div>
+                        <a href="#" class="btn-register">Kayıt Ol <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                @* Kart 3: İleri Seviye Miksoloji *@
+                <div class="event-card">
+                    <div class="card-image-wrapper">
+                        <img src="/img/event-advanced.jpg" alt="İleri Seviye Miksoloji">
+                        <span class="badge-category">Workshop</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge-capacity">6 Kişilik</span>
+                        <h3 class="event-name">İleri Seviye Miksoloji</h3>
+                        <p class="event-desc">Profesyoneller için ileri teknikler: moleküler miksoloji, infüzyon ve aging.</p>
+                        <div class="event-details">
+                            <div class="detail-item"><i class="bi bi-calendar3"></i><span>5 Nisan 2026</span></div>
+                            <div class="detail-item"><i class="bi bi-clock"></i><span>14:00 - 18:00</span></div>
+                            <div class="detail-item"><i class="bi bi-geo-alt"></i><span>HB Academy</span></div>
+                        </div>
+                        <a href="#" class="btn-register">Kayıt Ol <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                @* Kart 4: İleri Seviye Miksoloji *@
+                <div class="event-card">
+                    <div class="card-image-wrapper">
+                        <img src="/img/event-tasting.jpg" alt="Craft Spirit Tadımı">
+                        <span class="badge-category">Tadım</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge-capacity">12 Kişilik</span>
+                        <h3 class="event-name">Craft Spirit Tadımı</h3>
+                        <p class="event-desc">Dünya'nın farklı bölgelerinden özenle seçilmiş craft spirit'leri keşfedin.</p>
+                        <div class="event-details">
+                            <div class="detail-item"><i class="bi bi-calendar3"></i><span>22 Mart 2026</span></div>
+                            <div class="detail-item"><i class="bi bi-clock"></i><span>18:00 - 21:00</span></div>
+                            <div class="detail-item"><i class="bi bi-geo-alt"></i><span>HB Tasting Room</span></div>
+                        </div>
+                        <a href="#" class="btn-register">Kayıt Ol <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                @* Kart 5: İleri Seviye Miksoloji *@
+                <div class="event-card">
+                    <div class="card-image-wrapper">
+                        <img src="/img/event-tasting.jpg" alt="Craft Spirit Tadımı">
+                        <span class="badge-category">Tadım</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge-capacity">12 Kişilik</span>
+                        <h3 class="event-name">Craft Spirit Tadımı</h3>
+                        <p class="event-desc">Dünya'nın farklı bölgelerinden özenle seçilmiş craft spirit'leri keşfedin.</p>
+                        <div class="event-details">
+                            <div class="detail-item"><i class="bi bi-calendar3"></i><span>22 Mart 2026</span></div>
+                            <div class="detail-item"><i class="bi bi-clock"></i><span>18:00 - 21:00</span></div>
+                            <div class="detail-item"><i class="bi bi-geo-alt"></i><span>HB Tasting Room</span></div>
+                        </div>
+                        <a href="#" class="btn-register">Kayıt Ol <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                @* Kart 6: İleri Seviye Miksoloji *@
+                <div class="event-card">
+                    <div class="card-image-wrapper">
+                        <img src="/img/event-masterclass.jpg" alt="Kokteyl Masterclass">
+                        <span class="badge-category">Workshop</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge-capacity">8 Kişilik</span>
+                        <h3 class="event-name">Kokteyl Masterclass</h3>
+                        <p class="event-desc">Klasik kokteyllerin modern yorumlarını öğrenin. Hands-on deneyim ile 8 farklı imza kokteyli.</p>
+                        <div class="event-details">
+                            <div class="detail-item"><i class="bi bi-calendar3"></i><span>15 Mart 2026</span></div>
+                            <div class="detail-item"><i class="bi bi-clock"></i><span>19:00 - 22:00</span></div>
+                            <div class="detail-item"><i class="bi bi-geo-alt"></i><span>HB Studio, İstanbul</span></div>
+                        </div>
+                        <a href="#" class="btn-register">Kayıt Ol <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="slider-nav-btn next" aria-label="İleri">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+@* Hizmetler ve Diğer Alanlar *@
+<section id="services" class="services-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Hizmetlerimiz</h2>
+            <p>İçecek deneyiminizi yükseltmek için kapsamlı çözümler</p>
+        </div>
+        <div class="row g-4">
+            @* Kart içerikleri aynı kalıyor, sadece temizlendi *@
+        </div>
+    </div>
+</section>
+
+@* İletişim Formu *@
+<div id="contact">
+    @await Html.PartialAsync("_ContactForm")
+</div>
+
+@section Scripts {
+    <script src="~/js/anasayfa/index.js"></script>
+}
