@@ -1,19 +1,7 @@
+@charset "UTF-8";
+@import 'variables';
+@import 'shared/contact-form';
 
-// ==========================================
-// 1. DEĞİŞKENLER (VARIABLES)
-// ==========================================
-$color-bg-deep: #0D0702;
-$color-whiskey-soft: #4A2F12;
-$color-whiskey-light: #8B622B;
-$color-amber-glow: #D48F1B;
-$color-gold-bright: #F5E6C8;
-$color-text-muted: rgba(245, 230, 200, 0.6);
-
-$font-serif: 'Playfair Display', serif;
-$font-sans: 'Inter', sans-serif;
-
-$transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-$glass-effect: blur(15px) saturate(180%);
 
 // ==========================================
 // 2. RESET VE TEMEL (BASE)
@@ -58,7 +46,8 @@ body.animated-bg {
     position: relative;
     z-index: 0;
     background: $color-bg-deep;
-      &::before {
+
+    &::before {
         content: '';
         position: fixed;
         top: 0;
@@ -104,8 +93,10 @@ body.animated-bg {
     padding: 24px 0;
     transition: all 0.4s ease-in-out;
     background: transparent; // Başlangıçta şeffaf
+
     // Sayfa aşağı kaydırıldığında devreye girecek stil
-    &.scrolled, &[style*="background"] {
+    &.scrolled,
+    &[style*="background"] {
         padding: 10px 0;
         background: rgba(13, 7, 2, 0.95) !important; // Açık viski tonuyla uyumlu koyu zemin
         backdrop-filter: blur(20px);
@@ -114,14 +105,143 @@ body.animated-bg {
     }
 }
 
-    .navbar-brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: $transition-smooth;
+
+    &:hover {
+        transform: scale(1.03);
 
         .brand-logo {
-            width: 42px;
-            height: 42px;
+            box-shadow: 0 0 35px $color-amber-glow, 0 0 15px rgba($color-amber-glow, 0.6);
+            transform: scale(1.15) rotate(5deg);
+        }
+    }
+
+    .brand-logo {
+        width: 42px;
+        height: 42px;
+        background: $color-amber-glow;
+        color: $color-bg-deep;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $font-serif;
+        font-weight: 900;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        transition: $transition-smooth;
+    }
+
+    .brand-text {
+        font-family: $font-serif;
+        font-size: 1.25rem;
+        color: $color-gold-bright;
+
+        .brand-gold {
+            color: $color-amber-glow;
+            margin-left: 4px;
+        }
+
+        .brand-collective {
+            color: $color-amber-glow;
+            font-weight: 400;
+        }
+    }
+}
+
+.nav-link {
+    color: rgba($color-gold-bright, 0.8) !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px !important;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 16px;
+        right: 16px;
+        height: 1px;
+        background: $color-amber-glow;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: right;
+    }
+
+    transition: all 0.3s ease; // Snappier transitions
+
+    &:hover {
+        color: $color-amber-glow !important;
+        text-shadow: 0 0 15px rgba($color-amber-glow, 0.7);
+        background: rgba($color-amber-glow, 0.12);
+        border-radius: 6px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba($color-amber-glow, 0.2);
+        transform: translateY(-4px);
+
+        &::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    }
+}
+
+.btn-cta {
+    display: inline-block; // Important: Make sure transform works on <a> tags
+    background: linear-gradient(135deg, $color-amber-glow, darken($color-amber-glow, 15%));
+    color: $color-bg-deep !important;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 2px 5px rgba($color-amber-glow, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); // Pop effect
+
+    &:hover {
+        transform: translateY(-8px) scale(1.08);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba($color-amber-glow, 0.8);
+        filter: brightness(1.25) contrast(1.1);
+    }
+
+    &:active {
+        transform: translateY(-2px) scale(1.02);
+    }
+}
+
+.navbar-toggler {
+    border: 1px solid rgba($color-amber-glow, 0.3);
+    padding: 8px;
+    transition: $transition-smooth;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        background: rgba($color-amber-glow, 0.2);
+        border-color: $color-amber-glow;
+        box-shadow: 0 10px 30px rgba($color-amber-glow, 0.4), 0 0 20px rgba($color-amber-glow, 0.2);
+        transform: translateY(-4px);
+    }
+
+    .navbar-toggler-icon {
+        filter: sepia(1) saturate(5) hue-rotate(350deg); // Amber glow for the icon
+    }
+}
+
+
+// ==========================================
+// 5. FOOTER (FIGMA REVISED)
+// ==========================================
+.main-footer {
+    background: #080402;
+    padding: 80px 0 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    .footer-logo-area {
+        .brand-logo {
+            width: 44px;
+            height: 44px;
             background: $color-amber-glow;
             color: $color-bg-deep;
             display: flex;
@@ -130,101 +250,36 @@ body.animated-bg {
             font-family: $font-serif;
             font-weight: 900;
             border-radius: 4px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .brand-text {
             font-family: $font-serif;
-            font-size: 1.25rem;
-            color: $color-gold-bright;
+            font-size: 1.35rem;
+            line-height: 1.2;
+            color: rgba(255, 255, 255, 0.9);
 
             .brand-gold {
                 color: $color-amber-glow;
-                margin-left: 4px;
-            }
-
-            .brand-collective {
-                color: $color-amber-glow;
-                font-weight: 400;
-            }
-        }
-    }
-
-    .nav-link {
-        color: rgba($color-gold-bright, 0.8) !important;
-        font-size: 0.9rem;
-        font-weight: 500;
-        padding: 8px 16px !important;
-
-        &:hover {
-            color: $color-amber-glow !important;
-        }
-    }
-
-    .btn-cta {
-        background: linear-gradient(135deg, $color-amber-glow, darken($color-amber-glow, 15%));
-        color: $color-bg-deep !important;
-        padding: 10px 24px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 0.9rem;
-        box-shadow: 0 4px 15px rgba($color-amber-glow, 0.3);
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba($color-amber-glow, 0.5);
-        }
-    }
-
-
-// ==========================================
-// 5. FOOTER (FIGMA STYLE)
-// ==========================================
-.main-footer {
-    background: #080402;
-    padding: 80px 0 40px;
-    border-top: 1px solid rgba($color-amber-glow, 0.1);
-
-    .footer-logo-area {
-        .brand-logo {
-            width: 48px;
-            height: 48px;
-            background: $color-amber-glow;
-            color: $color-bg-deep;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-family: $font-serif;
-            font-weight: 900;
-            border-radius: 4px;
-            margin-right: 12px;
-        }
-
-        .brand-text {
-            font-family: $font-serif;
-            font-size: 1.4rem;
-            color: $color-gold-bright;
-
-            .brand-gold {
-                color: $color-amber-glow;
+                font-weight: 700;
             }
         }
     }
 
     .footer-desc {
-        margin-top: 24px;
-        color: $color-text-muted;
+        margin-top: 15px;
+        color: rgba(245, 230, 200, 0.4);
         font-size: 0.95rem;
         line-height: 1.6;
-        max-width: 300px;
+        max-width: 320px;
     }
 
     .footer-title {
-        color: $color-gold-bright;
+        color: rgba(255, 255, 255, 0.9);
         font-family: $font-serif;
-        font-size: 1.2rem;
+        font-size: 1.35rem;
+        font-weight: 700;
         margin-bottom: 30px;
-        position: relative;
     }
 
     .footer-links {
@@ -235,12 +290,12 @@ body.animated-bg {
             margin-bottom: 12px;
 
             a {
-                color: $color-text-muted;
-                font-size: 0.95rem;
+                color: rgba(245, 230, 200, 0.5);
+                font-size: 1rem;
+                transition: $transition-smooth;
 
                 &:hover {
                     color: $color-amber-glow;
-                    padding-left: 5px;
                 }
             }
         }
@@ -251,31 +306,38 @@ body.animated-bg {
         gap: 15px;
 
         a {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            border: 1px solid rgba($color-gold-bright, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: $color-text-muted;
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.1rem;
+            transition: $transition-smooth;
 
             &:hover {
                 background: rgba($color-amber-glow, 0.1);
                 color: $color-amber-glow;
-                border-color: $color-amber-glow;
-                transform: translateY(-3px);
+                border-color: rgba($color-amber-glow, 0.4);
+                transform: translateY(-5px);
             }
         }
     }
 
     .footer-bottom {
         margin-top: 60px;
-        padding-top: 30px;
+        padding-top: 35px;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
-        color: rgba($color-gold-bright, 0.3);
-        font-size: 0.85rem;
+        text-align: center;
+
+        p {
+            color: rgba(245, 230, 200, 0.25);
+            font-size: 0.9rem;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
     }
 }
 
@@ -289,7 +351,7 @@ body.animated-bg {
     width: 50px;
     height: 50px;
     // Figma'daki kehribar geçişi
-    background: linear-gradient(135deg, #D48F1B 0%, #FFBF00 100% );
+    background: linear-gradient(135deg, #D48F1B 0%, #FFBF00 100%);
     border-radius: 50%;
     z-index: 10000;
     display: flex;
@@ -301,13 +363,14 @@ body.animated-bg {
     &:hover {
         transform: scale(1.1);
     }
+
     // Figma'daki o yayılan dalga (Ripple)
     &::after {
         content: '';
         position: absolute;
         inset: -4px; // Dışarıdan başlar
         border-radius: 50%;
-        border: 2px solid  #D48F1B;
+        border: 2px solid #D48F1B;
         animation: waRipple 2s infinite;
         opacity: 0;
     }
@@ -317,7 +380,7 @@ body.animated-bg {
         height: 35px;
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230D0702'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.653a11.888 11.888 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z'/%3E%3C/svg%3E") no-repeat center;
         background-size: contain;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
 }
 

@@ -1,0 +1,58 @@
+// ==========================================
+// HB Liquid Arts Collective - Global Değişkenler
+// ==========================================
+
+$color-bg-deep: #0D0702;
+$color-whiskey-soft: #4A2F12;
+$color-whiskey-light: #8B622B;
+$color-amber-glow: #D48F1B;
+$color-gold-bright: #F5E6C8;
+$color-text-muted: rgba(245, 230, 200, 0.6);
+
+$font-serif: 'Playfair Display', serif;
+$font-sans: 'Inter', sans-serif;
+
+$transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$glass-effect: blur(15px) saturate(180%);
+
+// Ekran boyutları için standart değişkenler
+$breakpoint-tablet: 992px;
+$breakpoint-mobile: 768px;
+$breakpoint-sm-mobile: 576px;
+
+// Reusable Mixin: Her yerde @include respond-to(mobile) şeklinde çağıracağız
+@mixin respond-to($canvas) {
+    @if $canvas == mobile {
+        @media (max-width: #{$breakpoint-mobile}) {
+            @content;
+        }
+    }
+    @else if $canvas == tablet {
+        @media (max-width: #{$breakpoint-tablet}) {
+            @content;
+        }
+    }
+    @else if $canvas == sm-mobile {
+        @media (max-width: #{$breakpoint-sm-mobile}) {
+            @content;
+        }
+    }
+}
+
+// Yeni eklenen Premium Hover & Shadow Mixin
+@mixin premium-hover-effect($shadow-color: rgba(0, 0, 0, 0.5), $glow-color: rgba($color-amber-glow, 0.2)) {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    // Masaüstü için Hover, Mobil için Active (Dokunma) durumu
+    &:hover, &:active {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px $shadow-color, 0 0 20px $glow-color;
+        border-color: rgba($color-amber-glow, 0.5);
+        outline: none;
+        z-index: 5;
+    }
+    // Mobilde tıklandığında (tap) geri bildirim hissini güçlendirir
+    &:active {
+        transform: translateY(-4px) scale(0.98);
+        transition: all 0.1s ease;
+    }
+}

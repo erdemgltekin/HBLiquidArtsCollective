@@ -3,11 +3,9 @@
     const nextBtn = document.querySelector('.slider-nav-btn.next');
     const prevBtn = document.querySelector('.slider-nav-btn.prev');
 
-    // Elemanlar yoksa scripti çalıştırma (Hata önleme)
     if (!slider || !nextBtn || !prevBtn) return;
 
     // 1. KESİNTİSİZ AKIŞ İÇİN KLONLAMA
-    // Orijinal kartları al ve slider'ın sonuna ekle
     const cards = Array.from(slider.children);
     cards.forEach(card => {
         const clone = card.cloneNode(true);
@@ -15,67 +13,70 @@
     });
 
     // 2. AKIŞ AYARLARI
-    let autoScrollSpeed = 0.5; // Hız 1'den 0.5'e düşürüldü (Daha yavaş ve premium)
+    let autoScrollSpeed = 0.3;
     let isPaused = false;
-    let requestID;
+    let currentScroll = 0; // Hassas takip için değişken
 
-    // Otomatik Kaydırma Döngüsü
     function step() {
         if (!isPaused) {
-            slider.scrollLeft += autoScrollSpeed;
+            // Hassas değişkenimize hızı ekliyoruz
+            currentScroll += autoScrollSpeed;
 
-            // Eğer orijinal set bittiyse (slider'ın yarısına gelindiyse) fark ettirmeden başa dön
-            if (slider.scrollLeft >= slider.scrollWidth / 2) {
+            // Slider'a tam sayı olarak atıyoruz (Hareketi tetikleyen kısım burası)
+            slider.scrollLeft = Math.floor(currentScroll);
+
+            // Başa dönme kontrolü (Orijinal genişliğin yarısı)
+            if (currentScroll >= slider.scrollWidth / 2) {
+                currentScroll = 0;
                 slider.scrollLeft = 0;
             }
+        } else {
+            // Manuel müdahale (oklar veya hover) olduğunda değişkeni senkronize tut
+            currentScroll = slider.scrollLeft;
         }
-        requestID = requestAnimationFrame(step);
+        requestAnimationFrame(step);
     }
 
     // Başlat
-    requestID = requestAnimationFrame(step);
+    requestAnimationFrame(step);
 
-    // 3. OK KONTROLLERİ (MANUEL GEÇİŞ)
-    // Kart genişliğini dinamik hesaplar (gap dahil)
+    // 3. OK KONTROLLERİ
     const getMoveAmount = () => {
         const firstCard = slider.querySelector('.event-card');
         return firstCard ? firstCard.offsetWidth + 30 : 380;
     };
 
     nextBtn.addEventListener('click', () => {
-        // Yumuşak geçiş için behavior: 'smooth'
         slider.scrollBy({ left: getMoveAmount(), behavior: 'smooth' });
     });
 
     prevBtn.addEventListener('click', () => {
-        // En baştaysak sona atla (Sonsuz geri dönme hissi)
         if (slider.scrollLeft <= 5) {
-            slider.scrollLeft = slider.scrollWidth / 2;
+            currentScroll = slider.scrollWidth / 2;
+            slider.scrollLeft = currentScroll;
         }
         slider.scrollBy({ left: -getMoveAmount(), behavior: 'smooth' });
     });
 
-    // 4. DURAKLATMA MANTIĞI (HOVER & TOUCH)
-    // Kullanıcı kartları incelerken veya butonlara basarken akışı durdurur
+    // 4. DURAKLATMA MANTIĞI
     const pause = () => { isPaused = true; };
-    const resume = () => { isPaused = false; };
+    const resume = () => {
+        isPaused = false;
+        currentScroll = slider.scrollLeft; // Devam ederken kaldığı yerden başla
+    };
 
-    // Slider alanı
     slider.addEventListener('mouseenter', pause);
     slider.addEventListener('mouseleave', resume);
 
-    // Navigasyon butonları
     [nextBtn, prevBtn].forEach(btn => {
         btn.addEventListener('mouseenter', pause);
         btn.addEventListener('mouseleave', resume);
-        // Tıklandığında da kısa bir duraksama için
         btn.addEventListener('click', () => {
             pause();
-            setTimeout(resume, 2000); // Tıklandıktan 2 saniye sonra devam et
+            setTimeout(resume, 2000);
         });
     });
 
-    // Mobil dokunmatik desteği
     slider.addEventListener('touchstart', pause, { passive: true });
     slider.addEventListener('touchend', resume);
 });

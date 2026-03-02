@@ -1,0 +1,15 @@
+﻿.page-container {
+  padding: 180px 0 100px;
+  min-height: 100vh;
+}
+.page-container .page-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  color: #F5E6C8;
+  margin-bottom: 20px;
+}
+.page-container .page-desc {
+  color: rgba(245, 230, 200, 0.6);
+  font-size: 1.2rem;
+  max-width: 700px;
+}

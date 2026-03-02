@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     @await RenderSectionAsync("Styles", required: false)
 </head>
@@ -40,7 +41,7 @@
                         <li class="nav-item"><a class="nav-link" href="/galeri">Galeri</a></li>
                         <li class="nav-item"><a class="nav-link" href="/hakkimizda">Hakkımızda</a></li>
                         <li class="nav-item ms-lg-3">
-                            <a class="btn-cta" href="#contact-form-section">Fiyat Al</a>
+                            <a class="btn-cta" href="/#contact-form-section">Fiyat Al</a>
                         </li>
                     </ul>
                 </div>
@@ -54,19 +55,44 @@
 
     <footer class="main-footer">
         <div class="container">
-            <div class="row pt-5 pb-4 footer-top">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <div class="footer-logo-area">
+            <div class="row py-5 footer-top">
+                @* Sol Sütun: Logo ve Açıklama *@
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-logo-area d-flex align-items-center mb-4">
                         <div class="brand-logo">HB</div>
-                        <div class="brand-text">
+                        <div class="brand-text ms-3">
                             <span class="brand-light">Liquid Arts</span>
-                            <span class="brand-gold">Collective</span>
+                            <span class="brand-gold">Kolektifi</span>
                         </div>
                     </div>
                     <p class="footer-desc">2020'den beri craft kokteyl sanatını ve içki eğitimini yükseltiyoruz.</p>
                 </div>
+
+                @* Orta Sütun: Hızlı Bağlantılar *@
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 class="footer-title">Hızlı Bağlantılar</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Kurucu</a></li>
+                        <li><a href="/hizmetlerimiz">Hizmetlerimiz</a></li>
+                        <li><a href="/danismanliklar">Danışmanlıklar</a></li>
+                        <li><a href="/projelerimiz">Projelerimiz</a></li>
+                        <li><a href="/galeri">Galeri</a></li>
+                    </ul>
+                </div>
+
+                @* Sağ Sütun: Sosyal Medya *@
+                <div class="col-lg-4">
+                    <h3 class="footer-title">Bizi Takip Edin</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-bottom text-center">
+
+            <div class="footer-bottom">
                 <p>&copy; @DateTime.Now.Year HB Liquid Arts Kolektifi. Tüm hakları saklıdır.</p>
             </div>
         </div>

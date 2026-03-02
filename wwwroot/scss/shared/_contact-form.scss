@@ -1,0 +1,122 @@
+@charset "UTF-8";
+@import '../variables';
+
+.contact-section {
+    padding: 100px 0;
+    text-align: center;
+
+    .contact-heading {
+        font-family: $font-serif;
+        color: #ffffff;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 10px;
+        font-weight: 700;
+        text-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-subheading {
+        color: rgba(245, 230, 200, 0.4);
+        font-size: 1.25rem;
+        margin-bottom: 50px;
+    }
+}
+
+.glass-form {
+    background: #0D0905; // En koyu viski tonu
+    border: 1px solid rgba(212, 143, 27, 0.05);
+    border-radius: 28px;
+    padding: 60px !important;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
+    transition: $transition-smooth;
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+
+    &:hover {
+        border-color: rgba(212, 143, 27, 0.15);
+        box-shadow: 0 50px 120px rgba(0, 0, 0, 0.95);
+    }
+}
+
+.custom-label {
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    display: block;
+}
+
+.custom-input {
+    background: #050302 !important; // Neredeyse saf siyah inputlar
+    border: 1px solid rgba(255, 255, 255, 0.03) !important;
+    color: #ffffff !important;
+    padding: 18px 24px !important;
+    border-radius: 12px !important;
+    font-size: 1rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    &:focus {
+        background: #080604 !important;
+        border-color: rgba($color-amber-glow, 0.4) !important;
+        box-shadow: 0 0 30px rgba($color-amber-glow, 0.08) !important;
+        outline: none !important;
+    }
+}
+
+.custom-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 24px center;
+
+    option {
+        background: #0D0905;
+        color: #ffffff;
+    }
+}
+
+.btn-submit-glass {
+    background: #a67c2d !important; // Figma Solid Amber
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 22px !important;
+    font-weight: 700;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+    svg,
+    i {
+        font-size: 1.4rem;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 1, 1);
+    }
+
+    &:hover {
+        background: #bf913f !important; // Üzerine gelince biraz daha parlak
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(166, 124, 45, 0.35);
+        border-color: rgba(255, 255, 255, 0.2);
+
+        svg,
+        i {
+            transform: translate(8px, -8px) rotate(-15deg);
+        }
+    }
+
+    &:active {
+        transform: translateY(-2px);
+    }
+}

@@ -3,8 +3,28 @@
     "outputFile": "wwwroot/css/main.css",
     "inputFile": "wwwroot/scss/main.scss"
   },
-    {
+  {
     "outputFile": "wwwroot/css/index.css",
     "inputFile": "wwwroot/scss/anasayfa/index.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/hizmetlerimiz.css",
+    "inputFile": "wwwroot/scss/hizmetlerimiz/hizmetlerimiz.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/danismanliklar.css",
+    "inputFile": "wwwroot/scss/danismanliklar/danismanliklar.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/projelerimiz.css",
+    "inputFile": "wwwroot/scss/projelerimiz/projelerimiz.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/galeri.css",
+    "inputFile": "wwwroot/scss/galeri/galeri.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/hakkimizda.css",
+    "inputFile": "wwwroot/scss/hakkimizda/hakkimizda.scss"
   }
 ]

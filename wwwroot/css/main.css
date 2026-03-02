@@ -1,4 +1,114 @@
-﻿html,
+﻿.contact-section {
+  padding: 100px 0;
+  text-align: center;
+}
+.contact-section .contact-heading {
+  font-family: "Playfair Display", serif;
+  color: #ffffff;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+.contact-section .contact-subheading {
+  color: rgba(245, 230, 200, 0.4);
+  font-size: 1.25rem;
+  margin-bottom: 50px;
+}
+
+.glass-form {
+  background: #0D0905;
+  border: 1px solid rgba(212, 143, 27, 0.05);
+  border-radius: 28px;
+  padding: 60px !important;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.glass-form:hover {
+  border-color: rgba(212, 143, 27, 0.15);
+  box-shadow: 0 50px 120px rgba(0, 0, 0, 0.95);
+}
+
+.custom-label {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  display: block;
+}
+
+.custom-input {
+  background: #050302 !important;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  color: #ffffff !important;
+  padding: 18px 24px !important;
+  border-radius: 12px !important;
+  font-size: 1rem !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.custom-input::placeholder {
+  color: rgba(255, 255, 255, 0.1) !important;
+}
+.custom-input:focus {
+  background: #080604 !important;
+  border-color: rgba(212, 143, 27, 0.4) !important;
+  box-shadow: 0 0 30px rgba(212, 143, 27, 0.08) !important;
+  outline: none !important;
+}
+
+.custom-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 24px center;
+}
+.custom-select option {
+  background: #0D0905;
+  color: #ffffff;
+}
+
+.btn-submit-glass {
+  background: #a67c2d !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 22px !important;
+  font-weight: 700;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+.btn-submit-glass svg,
+.btn-submit-glass i {
+  font-size: 1.4rem;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 1, 1);
+}
+.btn-submit-glass:hover {
+  background: #bf913f !important;
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(166, 124, 45, 0.35);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.btn-submit-glass:hover svg,
+.btn-submit-glass:hover i {
+  transform: translate(8px, -8px) rotate(-15deg);
+}
+.btn-submit-glass:active {
+  transform: translateY(-2px);
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
@@ -84,6 +194,14 @@ body.animated-bg::before {
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navbar-brand:hover {
+  transform: scale(1.03);
+}
+.navbar-brand:hover .brand-logo {
+  box-shadow: 0 0 35px #D48F1B, 0 0 15px rgba(212, 143, 27, 0.6);
+  transform: scale(1.15) rotate(5deg);
 }
 .navbar-brand .brand-logo {
   width: 42px;
@@ -97,6 +215,7 @@ body.animated-bg::before {
   font-weight: 900;
   border-radius: 4px;
   font-size: 1.2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .navbar-brand .brand-text {
   font-family: "Playfair Display", serif;
@@ -117,64 +236,111 @@ body.animated-bg::before {
   font-size: 0.9rem;
   font-weight: 500;
   padding: 8px 16px !important;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: #D48F1B;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
 }
 .nav-link:hover {
   color: #D48F1B !important;
+  text-shadow: 0 0 15px rgba(212, 143, 27, 0.7);
+  background: rgba(212, 143, 27, 0.12);
+  border-radius: 6px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 143, 27, 0.2);
+  transform: translateY(-4px);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .btn-cta {
+  display: inline-block;
   background: linear-gradient(135deg, #D48F1B, rgb(144.1422594142, 97.2280334728, 18.3577405858));
   color: #0D0702 !important;
   padding: 10px 24px;
   border-radius: 50px;
   font-weight: 700;
   font-size: 0.9rem;
-  box-shadow: 0 4px 15px rgba(212, 143, 27, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 2px 5px rgba(212, 143, 27, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .btn-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 143, 27, 0.5);
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(212, 143, 27, 0.8);
+  filter: brightness(1.25) contrast(1.1);
+}
+.btn-cta:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.navbar-toggler {
+  border: 1px solid rgba(212, 143, 27, 0.3);
+  padding: 8px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.navbar-toggler:hover {
+  background: rgba(212, 143, 27, 0.2);
+  border-color: #D48F1B;
+  box-shadow: 0 10px 30px rgba(212, 143, 27, 0.4), 0 0 20px rgba(212, 143, 27, 0.2);
+  transform: translateY(-4px);
+}
+.navbar-toggler .navbar-toggler-icon {
+  filter: sepia(1) saturate(5) hue-rotate(350deg);
 }
 
 .main-footer {
   background: #080402;
   padding: 80px 0 40px;
-  border-top: 1px solid rgba(212, 143, 27, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 .main-footer .footer-logo-area .brand-logo {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   background: #D48F1B;
   color: #0D0702;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Playfair Display", serif;
   font-weight: 900;
   border-radius: 4px;
-  margin-right: 12px;
+  font-size: 1.1rem;
 }
 .main-footer .footer-logo-area .brand-text {
   font-family: "Playfair Display", serif;
-  font-size: 1.4rem;
-  color: #F5E6C8;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.9);
 }
 .main-footer .footer-logo-area .brand-text .brand-gold {
   color: #D48F1B;
+  font-weight: 700;
 }
 .main-footer .footer-desc {
-  margin-top: 24px;
-  color: rgba(245, 230, 200, 0.6);
+  margin-top: 15px;
+  color: rgba(245, 230, 200, 0.4);
   font-size: 0.95rem;
   line-height: 1.6;
-  max-width: 300px;
+  max-width: 320px;
 }
 .main-footer .footer-title {
-  color: #F5E6C8;
+  color: rgba(255, 255, 255, 0.9);
   font-family: "Playfair Display", serif;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
+  font-weight: 700;
   margin-bottom: 30px;
-  position: relative;
 }
 .main-footer .footer-links {
   list-style: none;
@@ -184,40 +350,46 @@ body.animated-bg::before {
   margin-bottom: 12px;
 }
 .main-footer .footer-links li a {
-  color: rgba(245, 230, 200, 0.6);
-  font-size: 0.95rem;
+  color: rgba(245, 230, 200, 0.5);
+  font-size: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .main-footer .footer-links li a:hover {
   color: #D48F1B;
-  padding-left: 5px;
 }
 .main-footer .social-links {
   display: flex;
   gap: 15px;
 }
 .main-footer .social-links a {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: 1px solid rgba(245, 230, 200, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(245, 230, 200, 0.6);
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .main-footer .social-links a:hover {
   background: rgba(212, 143, 27, 0.1);
   color: #D48F1B;
-  border-color: #D48F1B;
-  transform: translateY(-3px);
+  border-color: rgba(212, 143, 27, 0.4);
+  transform: translateY(-5px);
 }
 .main-footer .footer-bottom {
   margin-top: 60px;
-  padding-top: 30px;
+  padding-top: 35px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  color: rgba(245, 230, 200, 0.3);
-  font-size: 0.85rem;
+  text-align: center;
+}
+.main-footer .footer-bottom p {
+  color: rgba(245, 230, 200, 0.25);
+  font-size: 0.9rem;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
 .whatsapp-float {
