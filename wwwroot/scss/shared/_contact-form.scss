@@ -2,121 +2,202 @@
 @import '../variables';
 
 .contact-section {
-    padding: 100px 0;
-    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    z-index: 1;
 
-    .contact-heading {
-        font-family: $font-serif;
-        color: #ffffff;
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        margin-bottom: 10px;
-        font-weight: 700;
-        text-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    .form-container {
+        max-width: 900px;
+        margin: 0 auto;
     }
 
-    .contact-subheading {
-        color: rgba(245, 230, 200, 0.4);
-        font-size: 1.25rem;
+    .contact-header {
+        text-align: center;
         margin-bottom: 50px;
+
+        .contact-heading {
+            font-family: $font-serif;
+            color: $color-gold-bright;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .contact-subheading {
+            color: $color-text-muted;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
     }
 }
 
 .glass-form {
-    background: #0D0905; // En koyu viski tonu
-    border: 1px solid rgba(212, 143, 27, 0.05);
+    background: rgba(18, 12, 7, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba($color-whiskey-light, 0.15);
     border-radius: 28px;
-    padding: 60px !important;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
-    transition: $transition-smooth;
-    text-align: left;
-    max-width: 900px;
-    margin: 0 auto;
+    padding: 50px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
 
-    &:hover {
-        border-color: rgba(212, 143, 27, 0.15);
-        box-shadow: 0 50px 120px rgba(0, 0, 0, 0.95);
+    .form-row {
+        display: flex;
+        gap: 25px;
+        margin-bottom: 25px;
+
+        @include respond-to(mobile) {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+
+    .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        &.full-width {
+            margin-bottom: 35px;
+        }
     }
 }
 
 .custom-label {
-    color: #ffffff;
+    color: $color-gold-bright;
+    font-size: 0.85rem;
     font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 15px;
-    font-size: 0.95rem;
-    display: block;
+    opacity: 0.85;
 }
 
 .custom-input {
-    background: #050302 !important; // Neredeyse saf siyah inputlar
-    border: 1px solid rgba(255, 255, 255, 0.03) !important;
-    color: #ffffff !important;
-    padding: 18px 24px !important;
-    border-radius: 12px !important;
-    font-size: 1rem !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba($color-whiskey-soft, 0.4);
+    color: #ffffff;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: $font-sans;
+    transition: $transition-smooth;
 
     &::placeholder {
-        color: rgba(255, 255, 255, 0.1) !important;
+        color: rgba(255, 255, 255, 0.3);
     }
 
     &:focus {
-        background: #080604 !important;
-        border-color: rgba($color-amber-glow, 0.4) !important;
-        box-shadow: 0 0 30px rgba($color-amber-glow, 0.08) !important;
-        outline: none !important;
+        outline: none;
+        background: rgba(0, 0, 0, 0.5);
+        border-color: $color-amber-glow;
+        box-shadow: 0 0 20px rgba($color-amber-glow, 0.1);
     }
 }
 
+// SELECT KUTUSU DÜZENLEMESİ (Çift ok sorunu çözümü)
 .custom-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    appearance: none; // Tarayıcı okunu kaldırır
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23D48F1B' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 24px center;
+    background-position: right 20px center;
+    padding-right: 50px;
 
     option {
-        background: #0D0905;
-        color: #ffffff;
+        background: #120c07;
+        color: #fff;
     }
 }
 
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// BUTON VE İKON DÜZENLEMESİ
 .btn-submit-glass {
-    background: #a67c2d !important; // Figma Solid Amber
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 22px !important;
+    width: 100%;
+    padding: 20px;
+    background: $color-amber-glow;
+    color: #000;
+    border: none;
+    border-radius: 14px;
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    width: 100%;
-    margin-top: 30px;
+    gap: 12px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    // İkonun devleşmesini engelleyen kritik sınırlama
+    .submit-icon {
+        width: 20px !important;
+        height: 20px !important;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+        display: block; // SVG'nin inline hatalarını önler
+    }
 
-    svg,
-    i {
-        font-size: 1.4rem;
-        transition: transform 0.4s cubic-bezier(0.4, 0, 1, 1);
+    .btn-text {
+        transition: all 0.3s ease;
     }
 
     &:hover {
-        background: #bf913f !important; // Üzerine gelince biraz daha parlak
-        transform: translateY(-8px);
-        box-shadow: 0 25px 50px rgba(166, 124, 45, 0.35);
-        border-color: rgba(255, 255, 255, 0.2);
+        background: $color-gold-bright;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba($color-amber-glow, 0.2);
 
-        svg,
-        i {
-            transform: translate(8px, -8px) rotate(-15deg);
+        .submit-icon {
+            transform: translate(3px, -3px);
         }
     }
 
-    &:active {
-        transform: translateY(-2px);
+    &.is-sending {
+        pointer-events: none;
+        background: $color-whiskey-soft !important;
+        opacity: 0.8;
+
+        .btn-text {
+            opacity: 0.6;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-icon {
+            opacity: 0.3;
+        }
+    }
+
+    &.is-success {
+        background: $color-gold-bright !important;
+        color: #000 !important;
+        pointer-events: none;
+        box-shadow: 0 0 40px rgba($color-gold-bright, 0.5);
+
+        &::before {
+            content: '✓';
+            font-weight: 900;
+            margin-right: 8px;
+            animation: scaleIn 0.3s ease-out;
+        }
+
+        .submit-icon {
+            display: none !important; // Kesin gizleme
+        }
+
+        .btn-text {
+            font-weight: 800;
+            transform: scale(1.05);
+        }
     }
 }

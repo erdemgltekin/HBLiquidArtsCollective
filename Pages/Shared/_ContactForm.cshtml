@@ -1,60 +1,59 @@
-@* 
-    Ortak İletişim / Fiyat Teklifi Formu Bileşeni
-    Bu partial view formun kullanıldığı her yerden (@await Html.PartialAsync("_ContactForm")) çağrılabilir.
-*@
+@* HB Liquid Arts Collective - Global Contact Form *@
 
-<section id="contact-form-section" class="contact-section py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-7">
-                <!-- Form Başlığı -->
-                <header class="text-center mb-5">
-                    <h2 class="h1 contact-heading">Fiyat Teklifi Al</h2>
-                    <p class="contact-subheading">Birlikte olağanüstü bir şeyler yaratalım</p>
-                </header>
+<section id="contact-form-section" class="contact-section">
+    <div class="form-container">
+        <header class="contact-header">
+            <h2 class="contact-heading">Fiyat Teklifi Al</h2>
+            <p class="contact-subheading">Birlikte olağanüstü bir şeyler yaratalım</p>
+        </header>
 
-                <!-- Form Girdileri -->
-                <form id="globalContactForm" class="custom-form p-4 p-md-5 rounded-4 shadow-lg glass-form">
-                    <div class="row mb-4">
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <label for="txtName" class="form-label small fw-bold custom-label">Ad Soyad *</label>
-                            <input type="text" class="form-control custom-input" id="txtName" required placeholder="Adınızı girin" />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="txtEmail" class="form-label small fw-bold custom-label">E-posta Adresi *</label>
-                            <input type="email" class="form-control custom-input" id="txtEmail" required placeholder="eposta@ornek.com" />
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <label for="txtPhone" class="form-label small fw-bold custom-label">Telefon Numarası</label>
-                            <input type="tel" class="form-control custom-input" id="txtPhone" placeholder="+90 5XX XXX XX XX" />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="ddlService" class="form-label small fw-bold custom-label">İlgilendiğiniz Hizmet *</label>
-                            <select class="form-select custom-input custom-select" id="ddlService" required>
-                                <option value="">Bir hizmet seçin</option>
-                                <option value="consultancy">Danışmanlıklar</option>
-                                <option value="workshops">Workshop</option>
-                                <option value="catering">Catering</option>
-                                <option value="other">Diğer</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="mb-5">
-                        <label for="txtMessage" class="form-label small fw-bold custom-label">Mesajınız *</label>
-                        <textarea class="form-control custom-input" id="txtMessage" rows="5" required placeholder="Projeniz veya etkinliğiniz hakkında bize bilgi verin..."></textarea>
-                    </div>
-                    <div class="d-grid">
-                        <button type="submit" class="btn w-100 py-3 fw-bold shadow-lg btn-submit-glass">
-                            <span class="d-flex align-items-center justify-content-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                                Talebi Gönder
-                            </span>
-                        </button>
-                    </div>
-                </form>
+        <form id="globalContactForm" action="javascript:void(0);" method="POST" class="glass-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="txtName" class="custom-label">Ad Soyad *</label>
+                    <input type="text" id="txtName" name="Name" class="custom-input" required placeholder="Adınızı girin" />
+                </div>
+                <div class="form-group">
+                    <label for="txtEmail" class="custom-label">E-posta Adresi *</label>
+                    <input type="email" id="txtEmail" name="Email" class="custom-input" required placeholder="eposta@ornek.com" />
+                </div>
             </div>
-        </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="txtPhone" class="custom-label">Telefon Numarası</label>
+                    <input type="tel" id="txtPhone" name="Phone" class="custom-input" placeholder="+90 5XX XXX XX XX" />
+                </div>
+                <div class="form-group">
+                    <label for="ddlService" class="custom-label">İlgilendiğiniz Hizmet *</label>
+                    <select id="ddlService" name="Service" class="custom-input custom-select" required>
+                        <option value="" disabled selected>Bir hizmet seçin</option>
+                        <option value="consultancy">Danışmanlıklar</option>
+                        <option value="workshops">Workshop</option>
+                        <option value="catering">Catering</option>
+                        <option value="other">Diğer</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="txtMessage" class="custom-label">Mesajınız *</label>
+                <textarea id="txtMessage" name="Message" class="custom-input" rows="5" required placeholder="Projeniz hakkında detay verin..."></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-submit-glass">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="submit-icon">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                    <span class="btn-text">Talebi Gönder</span>
+                </button>
+            </div>
+        </form>
     </div>
 </section>
+
+@section Scripts {
+    <script src="~/js/contactFrom/_contactFrom.js"></script>
+}

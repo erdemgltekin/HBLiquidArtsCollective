@@ -231,17 +231,22 @@ body.animated-bg {
 
 
 // ==========================================
-// 5. FOOTER (FIGMA REVISED)
+// 5. FOOTER 
 // ==========================================
 .main-footer {
-    background: #080402;
-    padding: 80px 0 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    /* Arka planı düz siyah yapmak yerine transparan yapıyoruz. 
+       Böylece body üzerindeki animated-bg veya main background sızmaya devam eder. */
+    background: rgba(8, 4, 2, 0.7);
+    backdrop-filter: blur(15px); // Şık bir cam efekti ekler
+    -webkit-backdrop-filter: blur(15px);
+    /* Üst ve alt boşluğu daralttık (80px'den 50px'e düştü) */
+    padding: 50px 0 25px;
+    border-top: 1px solid rgba($color-gold-bright, 0.1);
 
     .footer-logo-area {
         .brand-logo {
-            width: 44px;
-            height: 44px;
+            width: 40px; // Biraz daha kompakt
+            height: 40px;
             background: $color-amber-glow;
             color: $color-bg-deep;
             display: flex;
@@ -250,36 +255,38 @@ body.animated-bg {
             font-family: $font-serif;
             font-weight: 900;
             border-radius: 4px;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .brand-text {
             font-family: $font-serif;
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             line-height: 1.2;
             color: rgba(255, 255, 255, 0.9);
 
             .brand-gold {
-                color: $color-amber-glow;
+                color: $color-gold-bright; // Değişken ismini synchronize ettik
                 font-weight: 700;
             }
         }
     }
 
     .footer-desc {
-        margin-top: 15px;
-        color: rgba(245, 230, 200, 0.4);
-        font-size: 0.95rem;
-        line-height: 1.6;
-        max-width: 320px;
+        margin-top: 12px;
+        color: rgba(245, 230, 200, 0.5); // Okunabilirliği biraz artırdık
+        font-size: 0.9rem;
+        line-height: 1.5;
+        max-width: 300px;
     }
 
     .footer-title {
-        color: rgba(255, 255, 255, 0.9);
+        color: $color-gold-bright; // Başlıklar altın sarısı olursa daha premium durur
         font-family: $font-serif;
-        font-size: 1.35rem;
+        font-size: 1.15rem; // Biraz küçülttük
         font-weight: 700;
-        margin-bottom: 30px;
+        margin-bottom: 20px; // Boşluğu daralttık
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     .footer-links {
@@ -287,15 +294,17 @@ body.animated-bg {
         padding: 0;
 
         li {
-            margin-bottom: 12px;
+            margin-bottom: 8px; // 12px'den 8px'e çektik
 
             a {
-                color: rgba(245, 230, 200, 0.5);
-                font-size: 1rem;
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.95rem;
                 transition: $transition-smooth;
+                text-decoration: none;
 
                 &:hover {
-                    color: $color-amber-glow;
+                    color: $color-gold-bright;
+                    padding-left: 5px; // Hafif bir etkileşim
                 }
             }
         }
@@ -303,40 +312,39 @@ body.animated-bg {
 
     .social-links {
         display: flex;
-        gap: 15px;
+        gap: 12px;
 
         a {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba($color-gold-bright, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 1.1rem;
-            transition: $transition-smooth;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            transition: all 0.3s ease;
 
             &:hover {
-                background: rgba($color-amber-glow, 0.1);
-                color: $color-amber-glow;
-                border-color: rgba($color-amber-glow, 0.4);
-                transform: translateY(-5px);
+                background: rgba($color-gold-bright, 0.1);
+                color: $color-gold-bright;
+                border-color: $color-gold-bright;
+                transform: translateY(-3px);
             }
         }
     }
 
     .footer-bottom {
-        margin-top: 60px;
-        padding-top: 35px;
+        margin-top: 40px; // 60px'den 40px'e düştü
+        padding-top: 25px;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
         text-align: center;
 
         p {
-            color: rgba(245, 230, 200, 0.25);
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.85rem;
             margin: 0;
-            letter-spacing: 0.5px;
         }
     }
 }

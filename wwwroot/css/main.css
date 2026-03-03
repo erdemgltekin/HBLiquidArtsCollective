@@ -1,111 +1,179 @@
-﻿.contact-section {
-  padding: 100px 0;
-  text-align: center;
+﻿@charset "UTF-8";
+.contact-section {
+  padding: 100px 20px;
+  position: relative;
+  z-index: 1;
 }
-.contact-section .contact-heading {
-  font-family: "Playfair Display", serif;
-  color: #ffffff;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: 10px;
-  font-weight: 700;
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-}
-.contact-section .contact-subheading {
-  color: rgba(245, 230, 200, 0.4);
-  font-size: 1.25rem;
-  margin-bottom: 50px;
-}
-
-.glass-form {
-  background: #0D0905;
-  border: 1px solid rgba(212, 143, 27, 0.05);
-  border-radius: 28px;
-  padding: 60px !important;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  text-align: left;
+.contact-section .form-container {
   max-width: 900px;
   margin: 0 auto;
 }
-.glass-form:hover {
-  border-color: rgba(212, 143, 27, 0.15);
-  box-shadow: 0 50px 120px rgba(0, 0, 0, 0.95);
+.contact-section .contact-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.contact-section .contact-header .contact-heading {
+  font-family: "Playfair Display", serif;
+  color: #F5E6C8;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.contact-section .contact-header .contact-subheading {
+  color: rgba(245, 230, 200, 0.6);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.glass-form {
+  background: rgba(18, 12, 7, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(139, 98, 43, 0.15);
+  border-radius: 28px;
+  padding: 50px;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+}
+.glass-form .form-row {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+@media (max-width: 768px) {
+  .glass-form .form-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.glass-form .form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.glass-form .form-group.full-width {
+  margin-bottom: 35px;
 }
 
 .custom-label {
-  color: #ffffff;
+  color: #F5E6C8;
+  font-size: 0.85rem;
   font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 15px;
-  font-size: 0.95rem;
-  display: block;
+  opacity: 0.85;
 }
 
 .custom-input {
-  background: #050302 !important;
-  border: 1px solid rgba(255, 255, 255, 0.03) !important;
-  color: #ffffff !important;
-  padding: 18px 24px !important;
-  border-radius: 12px !important;
-  font-size: 1rem !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(74, 47, 18, 0.4);
+  color: #ffffff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .custom-input::placeholder {
-  color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.3);
 }
 .custom-input:focus {
-  background: #080604 !important;
-  border-color: rgba(212, 143, 27, 0.4) !important;
-  box-shadow: 0 0 30px rgba(212, 143, 27, 0.08) !important;
-  outline: none !important;
+  outline: none;
+  background: rgba(0, 0, 0, 0.5);
+  border-color: #D48F1B;
+  box-shadow: 0 0 20px rgba(212, 143, 27, 0.1);
 }
 
 .custom-select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23D48F1B' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 24px center;
+  background-position: right 20px center;
+  padding-right: 50px;
 }
 .custom-select option {
-  background: #0D0905;
-  color: #ffffff;
+  background: #120c07;
+  color: #fff;
 }
 
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .btn-submit-glass {
-  background: #a67c2d !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 22px !important;
+  width: 100%;
+  padding: 20px;
+  background: #D48F1B;
+  color: #000;
+  border: none;
+  border-radius: 14px;
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  width: 100%;
-  margin-top: 30px;
+  gap: 12px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
 }
-.btn-submit-glass svg,
-.btn-submit-glass i {
-  font-size: 1.4rem;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 1, 1);
+.btn-submit-glass .submit-icon {
+  width: 20px !important;
+  height: 20px !important;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  display: block;
+}
+.btn-submit-glass .btn-text {
+  transition: all 0.3s ease;
 }
 .btn-submit-glass:hover {
-  background: #bf913f !important;
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px rgba(166, 124, 45, 0.35);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #F5E6C8;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(212, 143, 27, 0.2);
 }
-.btn-submit-glass:hover svg,
-.btn-submit-glass:hover i {
-  transform: translate(8px, -8px) rotate(-15deg);
+.btn-submit-glass:hover .submit-icon {
+  transform: translate(3px, -3px);
 }
-.btn-submit-glass:active {
-  transform: translateY(-2px);
+.btn-submit-glass.is-sending {
+  pointer-events: none;
+  background: #4A2F12 !important;
+  opacity: 0.8;
+}
+.btn-submit-glass.is-sending .btn-text {
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+}
+.btn-submit-glass.is-sending .submit-icon {
+  opacity: 0.3;
+}
+.btn-submit-glass.is-success {
+  background: #F5E6C8 !important;
+  color: #000 !important;
+  pointer-events: none;
+  box-shadow: 0 0 40px rgba(245, 230, 200, 0.5);
+}
+.btn-submit-glass.is-success::before {
+  content: "✓";
+  font-weight: 900;
+  margin-right: 8px;
+  animation: scaleIn 0.3s ease-out;
+}
+.btn-submit-glass.is-success .submit-icon {
+  display: none !important;
+}
+.btn-submit-glass.is-success .btn-text {
+  font-weight: 800;
+  transform: scale(1.05);
 }
 
 html,
@@ -301,13 +369,18 @@ body.animated-bg::before {
 }
 
 .main-footer {
-  background: #080402;
-  padding: 80px 0 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  /* Arka planı düz siyah yapmak yerine transparan yapıyoruz. 
+     Böylece body üzerindeki animated-bg veya main background sızmaya devam eder. */
+  background: rgba(8, 4, 2, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  /* Üst ve alt boşluğu daralttık (80px'den 50px'e düştü) */
+  padding: 50px 0 25px;
+  border-top: 1px solid rgba(245, 230, 200, 0.1);
 }
 .main-footer .footer-logo-area .brand-logo {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   background: #D48F1B;
   color: #0D0702;
   display: flex;
@@ -316,80 +389,83 @@ body.animated-bg::before {
   font-family: "Playfair Display", serif;
   font-weight: 900;
   border-radius: 4px;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .main-footer .footer-logo-area .brand-text {
   font-family: "Playfair Display", serif;
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   line-height: 1.2;
   color: rgba(255, 255, 255, 0.9);
 }
 .main-footer .footer-logo-area .brand-text .brand-gold {
-  color: #D48F1B;
+  color: #F5E6C8;
   font-weight: 700;
 }
 .main-footer .footer-desc {
-  margin-top: 15px;
-  color: rgba(245, 230, 200, 0.4);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  max-width: 320px;
+  margin-top: 12px;
+  color: rgba(245, 230, 200, 0.5);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 300px;
 }
 .main-footer .footer-title {
-  color: rgba(255, 255, 255, 0.9);
+  color: #F5E6C8;
   font-family: "Playfair Display", serif;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 .main-footer .footer-links {
   list-style: none;
   padding: 0;
 }
 .main-footer .footer-links li {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 .main-footer .footer-links li a {
-  color: rgba(245, 230, 200, 0.5);
-  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
 }
 .main-footer .footer-links li a:hover {
-  color: #D48F1B;
+  color: #F5E6C8;
+  padding-left: 5px;
 }
 .main-footer .social-links {
   display: flex;
-  gap: 15px;
+  gap: 12px;
 }
 .main-footer .social-links a {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(245, 230, 200, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 1.1rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 .main-footer .social-links a:hover {
-  background: rgba(212, 143, 27, 0.1);
-  color: #D48F1B;
-  border-color: rgba(212, 143, 27, 0.4);
-  transform: translateY(-5px);
+  background: rgba(245, 230, 200, 0.1);
+  color: #F5E6C8;
+  border-color: #F5E6C8;
+  transform: translateY(-3px);
 }
 .main-footer .footer-bottom {
-  margin-top: 60px;
-  padding-top: 35px;
+  margin-top: 40px;
+  padding-top: 25px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
 }
 .main-footer .footer-bottom p {
-  color: rgba(245, 230, 200, 0.25);
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem;
   margin: 0;
-  letter-spacing: 0.5px;
 }
 
 .whatsapp-float {
