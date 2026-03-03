@@ -15,6 +15,30 @@
     padding-bottom: 80px;
     overflow: hidden;
     transition: $transition-smooth;
+    // Yeni eklenen kapsayıcı (Layout için)
+    .hero-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        width: 100%;
+
+        @include respond-to(tablet) {
+            flex-direction: column;
+            text-align: center;
+            gap: 40px;
+        }
+    }
+
+    .hero-content {
+        flex: 1;
+        z-index: 2;
+    }
+
+    .hero-image-area {
+        flex: 1;
+        z-index: 2;
+        width: 100%;
+    }
 
     @include respond-to(mobile) {
         padding-top: 100px;
@@ -184,7 +208,7 @@
 
         @include respond-to(tablet) {
             height: 500px;
-            margin-top: 50px;
+            margin-top: 0;
         }
 
         @include respond-to(mobile) {
@@ -414,6 +438,38 @@
 // ==========================================
 .services-section {
     padding: 80px 0;
+    // Başlık ve alt metni ortalamak için eklendis
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+
+        .section-title {
+            font-family: $font-serif;
+            font-size: 3rem;
+            color: $color-gold-bright;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: $color-text-muted;
+            max-width: 650px;
+            margin: 0 auto; // Yatayda ortalar
+        }
+    }
+    // Grid Layout Eklemeleri
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+
+        @include respond-to(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond-to(mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
 
     .service-card {
         @include premium-hover-effect(rgba(0, 0, 0, 0.5), rgba($color-amber-glow, 0.2));
@@ -424,10 +480,6 @@
         transition: all 0.4s ease;
         border: 1px solid rgba(212, 175, 55, 0.1);
         position: relative;
-
-        @include respond-to(mobile) {
-            margin-bottom: 30px;
-        }
 
         &:hover, &:active {
             .service-icon-wrapper {
@@ -457,7 +509,7 @@
     .service-content {
         padding: 35px 25px;
         position: relative;
-        margin-top: -50px; // İkonun yukarıda kalmasını sağlayan orijinal değer
+        margin-top: -50px;
         z-index: 5;
         text-align: left;
 
@@ -530,8 +582,9 @@
 // ==========================================
 .projects-section {
     padding: 100px 0;
-
+    // Başlık ve alt metni ortalamak için eklendi
     .section-header {
+        text-align: center;
         margin-bottom: 60px;
 
         .section-title {
@@ -548,31 +601,29 @@
         .section-subtitle {
             color: rgba(255, 255, 255, 0.7);
             font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto;
         }
     }
-
-    .projects-masonry {
-        column-count: 3;
-        column-gap: 25px;
-        width: 100%;
-        orphans: 1;
-        widows: 1;
+    // Grid Layout Eklemeleri
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
 
         @include respond-to(tablet) {
-            column-count: 2;
+            grid-template-columns: repeat(2, 1fr);
         }
 
         @include respond-to(mobile) {
-            column-count: 1;
+            grid-template-columns: 1fr;
         }
     }
 
     .project-card {
         @include premium-hover-effect(rgba(0, 0, 0, 0.7), rgba($color-amber-glow, 0.25));
         display: block;
-        break-inside: avoid;
         width: 100%;
-        margin-bottom: 25px;
         position: relative;
         border-radius: 24px;
         overflow: hidden;
@@ -581,11 +632,13 @@
 
         .project-image {
             width: 100%;
+            height: 350px; // Kartlar için sabit yükseklik
             overflow: hidden;
 
             img {
                 width: 100%;
-                height: auto;
+                height: 100%;
+                object-fit: cover;
                 display: block;
                 transition: transform 0.8s ease;
                 filter: brightness(0.7);

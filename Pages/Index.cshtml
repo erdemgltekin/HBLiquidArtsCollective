@@ -11,52 +11,47 @@
 
 @* Hero Section *@
 <section class="hero-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="hero-content">
-                    <span class="badge-premium">MİKOLOJİ & DANIŞMANLIK</span>
+    <div class="container hero-wrapper">
+        <div class="hero-content">
+            <span class="badge-premium">MİKOLOJİ & DANIŞMANLIK</span>
 
-                    <h1 class="hero-title">
-                        HB Liquid Arts <br>
-                        <span class="text-gold">Collective</span>
-                    </h1>
+            <h1 class="hero-title">
+                HB Liquid Arts <br>
+                <span class="text-gold">Collective</span>
+            </h1>
 
-                    <p class="hero-description">
-                        Butik içecek danışmanlığı ve miksoloji akademisi. Sıradan deneyimleri olağanüstü sıvı sanatına dönüştürüyoruz.
-                    </p>
+            <p class="hero-description">
+                Butik içecek danışmanlığı ve miksoloji akademisi. Sıradan deneyimleri olağanüstü sıvı sanatına dönüştürüyoruz.
+            </p>
 
-                    <div class="hero-actions">
-                        <a href="#" class="btn-primary-gold">Fiyat Teklifi Al</a>
-                        <a href="#" class="btn-outline-gold">Portfolyoyu Görüntüle</a>
-                    </div>
-
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-label">Yıl Deneyim</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Etkinlik</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">1K+</span>
-                            <span class="stat-label">Öğrenci</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="hero-actions">
+                <a href="#" class="btn-primary-gold">Fiyat Teklifi Al</a>
+                <a href="#" class="btn-outline-gold">Portfolyoyu Görüntüle</a>
             </div>
 
-            <div class="col-lg-6">
-                <div class="hero-image-container">
-                    <img src="~/images/hakan-balta.jpg" alt="Hakan Balta" class="hero-profile-img">
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Yıl Deneyim</span>
                 </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Etkinlik</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1K+</span>
+                    <span class="stat-label">Öğrenci</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image-area">
+            <div class="hero-image-container">
+                <img src="~/images/hakan-balta.jpg" alt="Hakan Balta" class="hero-profile-img">
             </div>
         </div>
     </div>
 </section>
-
 
 @* Event Section *@
 <section class="events-section">
@@ -67,13 +62,11 @@
         </div>
 
         <div class="slider-wrapper">
-            @* Navigasyon Okları - Arka plansız, saf ikon *@
             <button class="slider-nav-btn prev" aria-label="Geri">
                 <i class="bi bi-chevron-left"></i>
             </button>
 
             <div class="events-slider">
-
                 @* Kart 1: Kokteyl Masterclass *@
                 <div class="event-card">
                     <div class="card-image-wrapper">
@@ -131,7 +124,7 @@
                     </div>
                 </div>
 
-                @* Kart 4: İleri Seviye Miksoloji *@
+                @* Kart 4: Craft Spirit Tadımı (Tekrar) *@
                 <div class="event-card">
                     <div class="card-image-wrapper">
                         <img src="/img/event-tasting.jpg" alt="Craft Spirit Tadımı">
@@ -150,7 +143,7 @@
                     </div>
                 </div>
 
-                @* Kart 5: İleri Seviye Miksoloji *@
+                @* Kart 5: Craft Spirit Tadımı (Tekrar) *@
                 <div class="event-card">
                     <div class="card-image-wrapper">
                         <img src="/img/event-tasting.jpg" alt="Craft Spirit Tadımı">
@@ -169,7 +162,7 @@
                     </div>
                 </div>
 
-                @* Kart 6: İleri Seviye Miksoloji *@
+                @* Kart 6: Kokteyl Masterclass (Tekrar) *@
                 <div class="event-card">
                     <div class="card-image-wrapper">
                         <img src="/img/event-masterclass.jpg" alt="Kokteyl Masterclass">
@@ -187,7 +180,6 @@
                         <a href="#" class="btn-register">Kayıt Ol <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
-
             </div>
 
             <button class="slider-nav-btn next" aria-label="İleri">
@@ -200,60 +192,54 @@
 @* Hizmetlerimiz Bölümü *@
 <section id="services" class="services-section">
     <div class="container">
-        <div class="section-header text-center">
+        <div class="section-header">
             <h2 class="section-title">Hizmetlerimiz</h2>
             <p class="section-subtitle">İçecek deneyiminizi yükseltmek için kapsamlı çözümler</p>
         </div>
 
-        <div class="row g-4">
+        <div class="services-grid">
             @* Kart 1: Danışmanlık *@
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="/img/service-consultancy.jpg" alt="Danışmanlık">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="/img/service-consultancy.jpg" alt="Danışmanlık">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-wrapper">
+                        <i class="bi bi-briefcase"></i>
                     </div>
-                    <div class="service-content">
-                        <div class="service-icon-wrapper">
-                            <i class="bi bi-briefcase"></i>
-                        </div>
-                        <h3 class="service-title">Danışmanlık</h3>
-                        <p class="service-text">Oteller, restoranlar ve premium mekanlar için stratejik içecek programı geliştirme, menü küratörlüğü ve bar tasarım danışmanlığı.</p>
-                        <a href="#" class="btn-detail">Detayları Görüntüle <i class="bi bi-arrow-right"></i></a>
-                    </div>
+                    <h3 class="service-title">Danışmanlık</h3>
+                    <p class="service-text">Oteller, restoranlar ve premium mekanlar için stratejik içecek programı geliştirme, menü küratörlüğü ve bar tasarım danışmanlığı.</p>
+                    <a href="#" class="btn-detail">Detayları Görüntüle <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
 
             @* Kart 2: Workshop *@
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="/img/service-workshop.jpg" alt="Workshop">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="/img/service-workshop.jpg" alt="Workshop">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-wrapper">
+                        <i class="bi bi-mortarboard"></i>
                     </div>
-                    <div class="service-content">
-                        <div class="service-icon-wrapper">
-                            <i class="bi bi-mortarboard"></i>
-                        </div>
-                        <h3 class="service-title">Workshop</h3>
-                        <p class="service-text">Craft sanatında ustalaşmak isteyen meraklılar ve profesyoneller için tasarlanmış sürükleyici miksoloji sınıfları ve içki eğitim programları.</p>
-                        <a href="#" class="btn-detail">Detayları Görüntüle <i class="bi bi-arrow-right"></i></a>
-                    </div>
+                    <h3 class="service-title">Workshop</h3>
+                    <p class="service-text">Craft sanatında ustalaşmak isteyen meraklılar ve profesyoneller için tasarlanmış sürükleyici miksoloji sınıfları ve içki eğitim programları.</p>
+                    <a href="#" class="btn-detail">Detayları Görüntüle <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
 
             @* Kart 3: Catering *@
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="/img/service-catering.jpg" alt="Catering">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="/img/service-catering.jpg" alt="Catering">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-wrapper">
+                        <i class="bi bi-stars"></i>
                     </div>
-                    <div class="service-content">
-                        <div class="service-icon-wrapper">
-                            <i class="bi bi-stars"></i>
-                        </div>
-                        <h3 class="service-title">Catering</h3>
-                        <p class="service-text">Premium sunum ve hizmetle özel etkinlikler, kurumsal fonksiyonlar ve kutlamalar için özel kokteyl deneyimleri.</p>
-                        <a href="#" class="btn-detail">Detayları Görüntüle <i class="bi bi-arrow-right"></i></a>
-                    </div>
+                    <h3 class="service-title">Catering</h3>
+                    <p class="service-text">Premium sunum ve hizmetle özel etkinlikler, kurumsal fonksiyonlar ve kutlamalar için özel kokteyl deneyimleri.</p>
+                    <a href="#" class="btn-detail">Detayları Görüntüle <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -263,12 +249,12 @@
 @* Projelerimiz Bölümü *@
 <section id="projects" class="projects-section">
     <div class="container">
-        <div class="section-header text-center">
+        <div class="section-header">
             <h2 class="section-title">Proje Galerisi</h2>
             <p class="section-subtitle">Görselin boyutuna göre şekil alan modern tasarımımız</p>
         </div>
 
-        <div class="projects-masonry">
+        <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
                     <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=600" alt="Cocktail 1">
