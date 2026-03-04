@@ -590,25 +590,18 @@
 }
 .projects-section .section-header .section-title {
   font-family: "Playfair Display", serif;
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #ffffff;
-  margin-bottom: 15px;
-}
-@media (max-width: 768px) {
-  .projects-section .section-header .section-title {
-    font-size: 2.2rem;
-  }
 }
 .projects-section .section-header .section-subtitle {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.1rem;
-  max-width: 650px;
-  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.6);
 }
 .projects-section .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: 20px;
+  grid-auto-flow: dense;
 }
 @media (max-width: 992px) {
   .projects-section .projects-grid {
@@ -618,90 +611,66 @@
 @media (max-width: 768px) {
   .projects-section .projects-grid {
     grid-template-columns: 1fr;
+    grid-auto-rows: auto;
   }
 }
 .projects-section .project-card {
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  display: block;
-  width: 100%;
   position: relative;
   border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(212, 143, 27, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
 }
-.projects-section .project-card:hover, .projects-section .project-card:active {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 143, 27, 0.25);
-  border-color: rgba(212, 143, 27, 0.5);
-  outline: none;
-  z-index: 5;
+.projects-section .project-card.v-tall {
+  grid-row: span 4;
 }
-.projects-section .project-card:active {
-  transform: translateY(-4px) scale(0.98);
-  transition: all 0.1s ease;
+.projects-section .project-card.v-medium {
+  grid-row: span 3;
+}
+.projects-section .project-card.h-small {
+  grid-row: span 2;
 }
 .projects-section .project-card .project-image {
   width: 100%;
-  height: 350px;
-  overflow: hidden;
+  height: 100%;
 }
 .projects-section .project-card .project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   transition: transform 0.8s ease;
-  filter: brightness(0.7);
 }
 .projects-section .project-card .project-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 70%);
   display: flex;
   align-items: flex-end;
   padding: 25px;
-  transition: all 0.4s ease;
-}
-.projects-section .project-card .project-info .project-title {
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem;
-  color: #ffffff;
-  margin-bottom: 5px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .projects-section .project-card .project-info .project-category {
   color: #D48F1B;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 10px;
   display: block;
-  font-weight: 500;
+  margin-bottom: 5px;
 }
-.projects-section .project-card .project-info .btn-project-detail {
+.projects-section .project-card .project-info .project-title {
   color: #ffffff;
-  text-decoration: none;
-  font-size: 0.8rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  opacity: 0.8;
-  transition: 0.3s;
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  margin: 0;
 }
-.projects-section .project-card .project-info .btn-project-detail i {
-  color: #D48F1B;
-  transition: transform 0.3s ease;
-}
-.projects-section .project-card .project-info .btn-project-detail:hover, .projects-section .project-card .project-info .btn-project-detail:active {
+.projects-section .project-card:hover .project-overlay {
   opacity: 1;
-  color: #D48F1B;
+  transform: translateY(0);
 }
-.projects-section .project-card .project-info .btn-project-detail:hover i, .projects-section .project-card .project-info .btn-project-detail:active i {
-  transform: translateX(5px);
-}
-.projects-section .project-card:hover img, .projects-section .project-card:active img {
+.projects-section .project-card:hover img {
   transform: scale(1.1);
-  filter: brightness(1);
 }
 
 .contact-section .contact-form-wrapper {

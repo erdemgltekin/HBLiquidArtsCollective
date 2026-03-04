@@ -2,15 +2,117 @@
 @model DanismanliklarModel
 @{
     ViewData["Title"] = "Danışmanlıklar";
+    ViewData["Description"] = "İçecek mükemmelliğini işletmenize taşıyın. Profesyonel bar danışmanlığı, otel ve restoranlar için içecek programı geliştirme.";
 }
 
 @section Styles {
     <link rel="stylesheet" href="~/css/danismanliklar.css" asp-append-version="true" />
 }
 
-<div class="page-container">
+<div class="consultancy-page-wrapper">
     <div class="container">
-        <h1 class="page-title">Danışmanlıklar</h1>
-        <p class="page-desc">Oteller, restoranlar ve bar konseptleri için özel çözüm ve kürasyon sunuyoruz.</p>
+        
+        @* 1. Hero Section (Görsel 1 Üst) *@
+        <div class="consultancy-hero">
+            <h1 class="hero-title">İçecek Mükemmelliğini<br><span class="text-gold">İşletmenize Taşıyın</span></h1>
+            <p class="hero-desc">Otel, restoran ve premium mekanlar için stratejik içecek programı geliştirme,<br>menü küratörlüğü ve bar tasarım danışmanlığı.</p>
+        </div>
+
+        @* 2. İstatistikler Bento Grid (Görsel 1 Alt) *@
+        <div class="stats-grid">
+            <div class="stat-bento-card">
+                <span class="stat-val text-gold">15<span class="plus">+</span></span>
+                <span class="stat-label">YIL DENEYİM</span>
+            </div>
+            <div class="stat-bento-card">
+                <span class="stat-val text-gold">200<span class="plus">+</span></span>
+                <span class="stat-label">TAMAMLANAN PROJE</span>
+            </div>
+            <div class="stat-bento-card">
+                <span class="stat-val text-gold">%92</span>
+                <span class="stat-label">MÜŞTERİ MEMNUNİYETİ</span>
+            </div>
+            <div class="stat-bento-card">
+                <span class="stat-val text-gold">40<span class="plus">+</span></span>
+                <span class="stat-label">AKTİF ORTAK</span>
+            </div>
+        </div>
+
+        @* 3. Profesyonel Danışmanlık 2-Kolonlu Bento (Görsel 2) *@
+        <div class="consultancy-detail-grid">
+            <div class="detail-image-card glass-card hover-glow">
+                <img src="/img/service-consultancy.jpg" alt="Profesyonel Bar Danışmanlık" onerror="this.src='https://images.unsplash.com/photo-1574096079513-d8259312b78a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
+                <div class="image-badge">
+                    <strong class="badge-title">"Türkiye'nin En İyi Bar Danışmanı"</strong>
+                    <span class="badge-subtitle">— Hospitality Excellence Awards 2025</span>
+                </div>
+            </div>
+            <div class="detail-content-card glass-card hover-glow">
+                <h2 class="section-title text-gold">Profesyonel Danışmanlık</h2>
+                <p class="section-desc">15 yılı aşkın endüstri deneyimimizle, otel ve restoran işletmelerinizi rakiplerinizden öne çıkaracak benzersiz içecek programları geliştiriyoruz. Her projeyi işletmenizin DNA'sına uygun şekilde özelleştiriyoruz.</p>
+                
+                <ul class="feature-list">
+                    <li><i class="bi bi-check2-circle text-gold"></i> Premium içecek deneyimi tasarımı</li>
+                    <li><i class="bi bi-check2-circle text-gold"></i> Maliyet optimizasyonu ve kârlılık artışı</li>
+                    <li><i class="bi bi-check2-circle text-gold"></i> Marka kimliğinize uygun imza kokteylleri</li>
+                    <li><i class="bi bi-check2-circle text-gold"></i> Bar ekipmanı ve malzeme danışmanlığı</li>
+                    <li><i class="bi bi-check2-circle text-gold"></i> Operasyonel verimlilik iyileştirme</li>
+                    <li><i class="bi bi-check2-circle text-gold"></i> Pazar trendleri ve rekabet analizi</li>
+                </ul>
+            </div>
+        </div>
+
+        @* 4. Güvenilir Referanslarımız Bento Grid (6 Kolonlu) (Görsel 3) *@
+        <div class="references-section">
+            <div class="section-header">
+                <h2 class="section-title">Güvenilir Referanslarımız</h2>
+                <p class="section-desc">Türkiye'nin önde gelen markalarıyla çalışıyoruz</p>
+            </div>
+            <div class="references-grid">
+                <div class="ref-bento-card glass-card hover-glow">
+                    <h3 class="ref-name text-gold">LMH</h3>
+                    <span class="ref-fullname">Luxury Marina Hotel</span>
+                </div>
+                <div class="ref-bento-card glass-card hover-glow">
+                    <h3 class="ref-name text-gold">AGR</h3>
+                    <span class="ref-fullname">Aegean Restaurant</span>
+                </div>
+                <div class="ref-bento-card glass-card hover-glow">
+                    <h3 class="ref-name text-gold">MBC</h3>
+                    <span class="ref-fullname">Metropolitan Club</span>
+                </div>
+                <div class="ref-bento-card glass-card hover-glow">
+                    <h3 class="ref-name text-gold">GPH</h3>
+                    <span class="ref-fullname">Grand Palace Hotel</span>
+                </div>
+                <div class="ref-bento-card glass-card hover-glow">
+                    <h3 class="ref-name text-gold">CR</h3>
+                    <span class="ref-fullname">Coastal Resort</span>
+                </div>
+                <div class="ref-bento-card glass-card hover-glow">
+                    <h3 class="ref-name text-gold">UB</h3>
+                    <span class="ref-fullname">Urban Bistro</span>
+                </div>
+            </div>
+        </div>
+
+        @* 5. Başarı Hikayeleri Başlığı (Görsel 3 Alt Kısmı) *@
+        <div class="success-header">
+            <h2 class="section-title">Başarı Hikayeleri</h2>
+            <p class="section-desc">Gerçek projeler, ölçülebilir sonuçlar</p>
+        </div>
+
+        @* 6. CTA Kartı (Görsel 4) *@
+        <div class="cta-section">
+            <div class="cta-card glass-card hover-glow">
+                <h2 class="cta-title">İşletmenizi Dönüştürmeye Hazır mısınız?</h2>
+                <p class="cta-desc">İlk görüşme ücretsiz. Projenizi birlikte değerlendirelim.</p>
+                <div class="cta-actions">
+                    <a href="/Iletisim" class="btn-primary-form">Ücretsiz Danışma Talebi <i class="bi bi-arrow-right"></i></a>
+                    <a href="mailto:info@hbliquidarts.com" class="btn-outline-form"><i class="bi bi-envelope"></i> E-posta Gönder</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

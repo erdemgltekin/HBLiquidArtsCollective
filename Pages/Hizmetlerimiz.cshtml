@@ -11,113 +11,139 @@
 
 @* Hero Section *@
 <section class="page-hero">
-    <div class="container text-center">
+    <div class="container">
         <h1 class="hero-title">Hizmetlerimiz</h1>
         <p class="hero-subtitle">İçecek deneyiminizi yükseltmek için kapsamlı çözümler</p>
     </div>
 </section>
 
-@* Main Services *@
+@* Main Services — 3 Kolonlu Büyük Kart Grid *@
 <section class="main-services-section">
     <div class="container">
-        <div class="row g-4">
+        <div class="services-grid">
+
             @* Service 1: Danışmanlık *@
-            <div class="col-lg-4">
-                <div class="service-card large-card" data-service-id="consultancy">
-                    <div class="card-image-wrapper">
-                        <img src="/img/service-consultancy.jpg" alt="Danışmanlık">
-                    </div>
-                    <div class="card-content">
-                        <div class="service-icon"><i class="bi bi-briefcase"></i></div>
-                        <h3>Danışmanlık</h3>
-                        <p>Oteller, restoranlar ve premium mekanlar için stratejik içecek programı geliştirme, menü küratörlüğü ve bar tasarım danışmanlığı.</p>
-                        <span class="card-link">Detayları Görüntüle</span>
-                    </div>
+            <div class="service-card large-card hover-glow" data-service-id="consultancy">
+                <div class="card-image-wrapper">
+                    <img src="/img/service-consultancy.jpg" alt="Danışmanlık">
+                </div>
+                <div class="card-content">
+                    <div class="service-icon"><i class="bi bi-briefcase"></i></div>
+                    <h3>Danışmanlık</h3>
+                    <p>Oteller, restoranlar ve premium mekanlar için stratejik içecek programı geliştirme, menü küratörlüğü ve bar tasarım danışmanlığı.</p>
+                    <span class="card-link">Detayları Görüntüle</span>
                 </div>
             </div>
 
             @* Service 2: Workshop *@
-            <div class="col-lg-4">
-                <div class="service-card large-card" data-service-id="workshop">
-                    <div class="card-image-wrapper">
-                        <img src="/img/service-workshop.jpg" alt="Workshop">
-                    </div>
-                    <div class="card-content">
-                        <div class="service-icon"><i class="bi bi-mortarboard"></i></div>
-                        <h3>Workshop</h3>
-                        <p>Craft sanatında ustalaşmak isteyen meraklılar ve profesyoneller için tasarlanmış sürükleyici miksoloji sınıfları ve içki eğitim programları.</p>
-                        <span class="card-link">Detayları Görüntüle</span>
-                    </div>
+            <div class="service-card large-card hover-glow" data-service-id="workshop">
+                <div class="card-image-wrapper">
+                    <img src="/img/service-workshop.jpg" alt="Workshop">
+                </div>
+                <div class="card-content">
+                    <div class="service-icon"><i class="bi bi-mortarboard"></i></div>
+                    <h3>Workshop</h3>
+                    <p>Craft sanatında ustalaşmak isteyen meraklılar ve profesyoneller için tasarlanmış sürükleyici miksoloji sınıfları ve içki eğitim programları.</p>
+                    <span class="card-link">Detayları Görüntüle</span>
                 </div>
             </div>
 
             @* Service 3: Catering *@
-            <div class="col-lg-4">
-                <div class="service-card large-card" data-service-id="catering">
-                    <div class="card-image-wrapper">
-                        <img src="/img/service-catering.jpg" alt="Catering">
-                    </div>
-                    <div class="card-content">
-                        <div class="service-icon"><i class="bi bi-stars"></i></div>
-                        <h3>Catering</h3>
-                        <p>Premium sunum ve hizmetle özel etkinlikler, kurumsal fonksiyonlar ve kutlamalar için özel kokteyl deneyimleri.</p>
-                        <span class="card-link">Detayları Görüntüle</span>
-                    </div>
+            <div class="service-card large-card hover-glow" data-service-id="catering">
+                <div class="card-image-wrapper">
+                    <img src="/img/service-catering.jpg" alt="Catering">
+                </div>
+                <div class="card-content">
+                    <div class="service-icon"><i class="bi bi-stars"></i></div>
+                    <h3>Catering</h3>
+                    <p>Premium sunum ve hizmetle özel etkinlikler, kurumsal fonksiyonlar ve kutlamalar için özel kokteyl deneyimleri.</p>
+                    <span class="card-link">Detayları Görüntüle</span>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
-@* Additional Services (Ek Hizmetlerimiz) *@
-<section class="extra-services-section">
+@* Ek Hizmetler — Bento Grid *@
+<div class="services-overview">
     <div class="container">
-        <h2 class="section-title text-center">Ek Hizmetlerimiz</h2>
-        <div class="row g-4">
-            <div class="col-lg-4">
-                <div class="service-card small-card" data-service-id="bar-concept">
-                    <div class="card-content text-center">
-                        <div class="service-icon-small"><i class="bi bi-award"></i></div>
-                        <h3>Bar Konseptleri</h3>
-                        <p>Markanıza özel benzersiz bar konseptleri ve tasarımları oluşturuyoruz.</p>
-                    </div>
+        <div class="section-header">
+            <h2 class="section-title">Hizmet Kapsamımız</h2>
+            <p class="section-subtitle">İşletmenizin her ihtiyacı için kapsamlı çözümler</p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card glass-card hover-glow">
+                <div class="card-header">
+                    <div class="icon-box"><i class="bi bi-briefcase"></i></div>
+                    <span class="stat-value">150+<span class="stat-label">Program</span></span>
                 </div>
+                <h3 class="service-name">İçecek Programı Geliştirme</h3>
+                <p class="service-desc">Markanıza ve hedef kitlenize özel kapsamlı içecek menüleri ve programları tasarlıyoruz.</p>
             </div>
-            <div class="col-lg-4">
-                <div class="service-card small-card" data-service-id="staff-training">
-                    <div class="card-content text-center">
-                        <div class="service-icon-small"><i class="bi bi-people"></i></div>
-                        <h3>Personel Eğitimi</h3>
-                        <p>Ekibinizi en yüksek hizmet standartlarına ve miksoloji tekniklerine hazırlıyoruz.</p>
-                    </div>
+
+            <div class="service-card glass-card hover-glow">
+                <div class="card-header">
+                    <div class="icon-box"><i class="bi bi-graph-up-arrow"></i></div>
+                    <span class="stat-value">%72<span class="stat-label">Gelir Artışı</span></span>
                 </div>
+                <h3 class="service-name">Menü Küratörlüğü</h3>
+                <p class="service-desc">Karlılığı artıran ve müşteri memnuniyetini maksimize eden stratejik menü optimizasyonu.</p>
             </div>
-            <div class="col-lg-4">
-                <div class="service-card small-card" data-service-id="menu-opt">
-                    <div class="card-content text-center">
-                        <div class="service-icon-small"><i class="bi bi-graph-up-arrow"></i></div>
-                        <h3>Menü Optimizasyonu</h3>
-                        <p>Karlılığı artıran ve müşteri memnuniyetini maksimize eden stratejik menü geliştirme.</p>
-                    </div>
+
+            <div class="service-card glass-card hover-glow">
+                <div class="card-header">
+                    <div class="icon-box"><i class="bi bi-people"></i></div>
+                    <span class="stat-value">2000+<span class="stat-label">Eğitilen</span></span>
                 </div>
+                <h3 class="service-name">Personel Eğitimi</h3>
+                <p class="service-desc">Ekibinizi en yüksek hizmet standartlarına ve miksoloji tekniklerine hazırlıyoruz.</p>
             </div>
+
+            <div class="service-card glass-card hover-glow">
+                <div class="card-header">
+                    <div class="icon-box"><i class="bi bi-bar-chart-line"></i></div>
+                    <span class="stat-value">%35<span class="stat-label">Maliyet Tasarrufu</span></span>
+                </div>
+                <h3 class="service-name">Operasyonel Verimlilik</h3>
+                <p class="service-desc">Bar operasyonlarınızı analiz eder, maliyet optimizasyonu ve süreç iyileştirme sağlarız.</p>
+            </div>
+
+            <div class="service-card glass-card hover-glow">
+                <div class="card-header">
+                    <div class="icon-box"><i class="bi bi-globe2"></i></div>
+                    <span class="stat-value">60+<span class="stat-label">Konsept</span></span>
+                </div>
+                <h3 class="service-name">Marka Kimliği & Konsept</h3>
+                <p class="service-desc">Mekan kimliğinizi yansıtan özgün bar konseptleri ve imza kokteyl deneyimleri.</p>
+            </div>
+
+            <div class="service-card glass-card hover-glow">
+                <div class="card-header">
+                    <div class="icon-box"><i class="bi bi-cup-hot"></i></div>
+                    <span class="stat-value">300+<span class="stat-label">Tedarikçi</span></span>
+                </div>
+                <h3 class="service-name">Ekipman & Tedarik</h3>
+                <p class="service-desc">Bar ekipmanı seçimi, tedarikçi ilişkileri ve malzeme kalite standartları danışmanlığı.</p>
+            </div>
+
         </div>
     </div>
-</section>
+</div>
 
-@* Why Us Section *@
+@* Neden Biz — 2 Kolonlu Flex Layout *@
 <section class="why-us-section">
-    <div class="container container-glass">
-        <h2 class="section-title text-center">Neden HB Liquid Arts?</h2>
-        <div class="row g-5 mt-4">
-            <div class="col-md-6">
-                <div class="why-item">
+    <div class="container">
+        <div class="container-glass glass-card">
+            <h2 class="section-title">Neden HB Liquid Arts?</h2>
+            <div class="why-us-grid">
+                <div class="why-item glass-card hover-glow">
                     <h3>Deneyim ve Uzmanlık</h3>
                     <p>15 yılı aşkın endüstri deneyimi ile dünya standartlarında içecek çözümleri sunuyoruz. Uluslararası sertifikalarımız ve ödüllerimiz kalitemizin garantisidir.</p>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="why-item">
+                <div class="why-item glass-card hover-glow">
                     <h3>Kişiselleştirilmiş Çözümler</h3>
                     <p>Her işletmenin benzersiz ihtiyaçları olduğunu biliyoruz. Size özel çözümler geliştirerek markanızı rakiplerinizden farklılaştırıyoruz.</p>
                 </div>
@@ -143,3 +169,4 @@
 @section Scripts {
     <script src="~/js/hizmetlerimiz/hizmetlerimiz.js" asp-append-version="true"></script>
 }
+

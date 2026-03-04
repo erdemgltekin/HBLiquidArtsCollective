@@ -15,6 +15,7 @@
     padding-bottom: 80px;
     overflow: hidden;
     transition: $transition-smooth;
+
     // Yeni eklenen kapsayıcı (Layout için)
     .hero-wrapper {
         display: flex;
@@ -150,7 +151,7 @@
         }
 
         .btn-outline-gold {
-            @include premium-hover-effect(rgba(0,0,0,0.5), rgba($color-amber-glow, 0.1));
+            @include premium-hover-effect(rgba(0, 0, 0, 0.5), rgba($color-amber-glow, 0.1));
             padding: 16px 42px;
             border-radius: 50px;
             background: transparent;
@@ -416,7 +417,7 @@
             }
 
             .btn-register {
-                @include premium-hover-effect(rgba(0,0,0,0.3), rgba($color-amber-glow, 0.2));
+                @include premium-hover-effect(rgba(0, 0, 0, 0.3), rgba($color-amber-glow, 0.2));
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -438,6 +439,7 @@
 // ==========================================
 .services-section {
     padding: 80px 0;
+
     // Başlık ve alt metni ortalamak için eklendis
     .section-header {
         text-align: center;
@@ -456,6 +458,7 @@
             margin: 0 auto; // Yatayda ortalar
         }
     }
+
     // Grid Layout Eklemeleri
     .services-grid {
         display: grid;
@@ -481,7 +484,8 @@
         border: 1px solid rgba(212, 175, 55, 0.1);
         position: relative;
 
-        &:hover, &:active {
+        &:hover,
+        &:active {
             .service-icon-wrapper {
                 background: #ffffff;
                 transform: translateY(-5px) scale(1.1);
@@ -565,7 +569,8 @@
                 color: inherit;
             }
 
-            &:hover, &:active {
+            &:hover,
+            &:active {
                 color: #ffffff !important;
                 gap: 15px;
 
@@ -582,34 +587,37 @@
 // ==========================================
 .projects-section {
     padding: 100px 0;
-    // Başlık ve alt metni ortalamak için eklendi
+    // Background tanımlanmadı — global arka plan ($color-bg-deep) korunuyor.
+
     .section-header {
         text-align: center;
         margin-bottom: 60px;
 
         .section-title {
             font-family: $font-serif;
-            font-size: 3rem;
-            color: #ffffff;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: $color-gold-bright;
             margin-bottom: 15px;
-
-            @include respond-to(mobile) {
-                font-size: 2.2rem;
-            }
         }
 
         .section-subtitle {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.1rem;
-            max-width: 650px;
+            color: $color-text-muted;
+            font-size: 1rem;
+            max-width: 600px;
             margin: 0 auto;
         }
     }
-    // Grid Layout Eklemeleri
+
+    // ─── 3 Kolonlu Asimetrik CSS Grid ────────────────────────────────────
+    // grid-template-columns: 3 eşit kolon
+    // align-items: start → Her kart kendi yüksekliğinde durur,
+    //   kısa kartların altında arka plan görünür — görseldeki stagger efekti budur.
+    // HTML sırası: Kart1-Kart2-Kart3 (satır1) ardından Kart4-Kart5-Kart6 (satır2)
     .projects-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
+        grid-template-columns: 1.1fr 1fr 1.1fr;
+        gap: 18px;
+        align-items: start;
 
         @include respond-to(tablet) {
             grid-template-columns: repeat(2, 1fr);
@@ -620,89 +628,163 @@
         }
     }
 
+    // ─── Project Kart ────────────────────────────────────────────────────
     .project-card {
-        @include premium-hover-effect(rgba(0, 0, 0, 0.7), rgba($color-amber-glow, 0.25));
-        display: block;
-        width: 100%;
         position: relative;
-        border-radius: 24px;
+        border-radius: 20px;
         overflow: hidden;
-        border: 1px solid rgba($color-amber-glow, 0.1);
-        background: rgba(255, 255, 255, 0.03);
+        cursor: pointer;
+        border: 1px solid rgba($color-gold-bright, 0.08);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+            box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+            border-color 0.4s ease;
 
+        // ─── Yükseklik Sınıfları ─────────────────────────────────────────
+        // Kartlar HTML sırasında 3'erli gruplar halinde grid'e yerleşir.
+        // Satır 1: Col1=h-lg, Col2=h-lg, Col3=h-xs  → sol/orta tall, sağ kısa
+        // Satır 2: Col1=h-xl, Col2=h-sm, Col3=h-lg  → sol extra tall, orta kısa, sağ tall
+        &.h-xl {
+            height: 610px;
+        }
+
+        &.h-lg {
+            height: 490px;
+        }
+
+        &.h-md {
+            height: 370px;
+        }
+
+        &.h-sm {
+            height: 260px;
+        }
+
+        &.h-xs {
+            height: 200px;
+        }
+
+        @include respond-to(mobile) {
+
+            &.h-xl,
+            &.h-lg,
+            &.h-md,
+            &.h-sm,
+            &.h-xs {
+                height: 300px;
+            }
+        }
+
+        // ─── Görsel ──────────────────────────────────────────────────────
+        // .project-image yüksekliği kart yüksekliğini belirler.
+        // img height: 100% → kartın tamamını kaplar.
         .project-image {
             width: 100%;
-            height: 350px; // Kartlar için sabit yükseklik
-            overflow: hidden;
+            height: 100%;
 
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 display: block;
-                transition: transform 0.8s ease;
-                filter: brightness(0.7);
+                transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
             }
         }
 
+        // ─── Overlay (Başlangıçta gizli, hover'da görünür) ────────────────
         .project-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+            background: linear-gradient(to top,
+                    rgba(6, 3, 0, 0.95) 0%,
+                    rgba(13, 7, 2, 0.55) 45%,
+                    transparent 100%);
             display: flex;
             align-items: flex-end;
-            padding: 25px;
-            transition: all 0.4s ease;
+            padding: 28px 30px;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
+        // ─── İçerik ──────────────────────────────────────────────────────
         .project-info {
+            width: 100%;
+
+            .project-category {
+                display: block;
+                color: $color-amber-glow;
+                font-size: 0.7rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 2.5px;
+                margin-bottom: 8px;
+            }
+
             .project-title {
                 font-family: $font-serif;
                 font-size: 1.5rem;
+                font-weight: 700;
                 color: #ffffff;
-                margin-bottom: 5px;
+                margin: 0 0 16px;
+                line-height: 1.2;
+                text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
             }
 
-            .project-category {
-                color: $color-amber-glow;
-                font-size: 0.8rem;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                margin-bottom: 10px;
-                display: block;
-                font-weight: 500;
-            }
-
+            // ─── İncele Butonu — Tasarımdaki amber/altın arka plan ────────
             .btn-project-detail {
-                color: #ffffff;
-                text-decoration: none;
-                font-size: 0.8rem;
                 display: inline-flex;
                 align-items: center;
                 gap: 8px;
-                opacity: 0.8;
-                transition: 0.3s;
+                background: linear-gradient(135deg, $color-amber-glow 0%, darken($color-amber-glow, 10%) 100%);
+                color: $color-bg-deep !important;
+                font-size: 0.85rem;
+                font-weight: 700;
+                letter-spacing: 0.3px;
+                text-decoration: none;
+                padding: 10px 22px;
+                border-radius: 50px;
+                border: none;
+                transition: background 0.3s ease,
+                    gap 0.3s ease,
+                    box-shadow 0.3s ease,
+                    transform 0.3s ease;
 
                 i {
-                    color: $color-amber-glow;
+                    font-size: 1rem;
                     transition: transform 0.3s ease;
                 }
 
-                &:hover, &:active {
-                    opacity: 1;
-                    color: $color-amber-glow;
+                &:hover {
+                    background: $color-gold-bright;
+                    color: $color-bg-deep !important;
+                    gap: 14px;
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 22px rgba($color-amber-glow, 0.45);
 
                     i {
-                        transform: translateX(5px);
+                        transform: translateX(4px);
                     }
                 }
             }
         }
 
-        &:hover, &:active {
+        // ─── Hover ───────────────────────────────────────────────────────
+        &:hover {
+            transform: translateY(-8px) scale(1.025);
+            box-shadow:
+                0 32px 64px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba($color-amber-glow, 0.15);
+            border-color: rgba($color-amber-glow, 0.4);
+            z-index: 10;
+
+            .project-overlay {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
             img {
-                transform: scale(1.1);
-                filter: brightness(1);
+                transform: scale(1.08);
             }
         }
     }
@@ -732,13 +814,15 @@
         }
 
         .btn-submit {
-            @include premium-hover-effect(rgba(0,0,0,0.4), rgba($color-amber-glow, 0.3));
+            @include premium-hover-effect(rgba(0, 0, 0, 0.4), rgba($color-amber-glow, 0.3));
         }
     }
 }
 
 @keyframes pulse-icon {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
 
