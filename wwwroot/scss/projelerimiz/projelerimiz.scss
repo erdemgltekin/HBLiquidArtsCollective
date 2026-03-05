@@ -1,20 +1,249 @@
 @charset "UTF-8";
-@import '../variables';
+@import '../_variables';
 
 .page-container {
-    padding: 180px 0 100px;
+    padding: 160px 0 100px;
     min-height: 100vh;
+    background: transparent;
 
-    .page-title {
-        font-family: $font-serif;
-        font-size: 3.5rem;
-        color: $color-gold-bright;
-        margin-bottom: 20px;
-    }
+    .content-wrapper {
+        display: block !important; // Force block
+        width: 100% !important; // Force width
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
 
-    .page-desc {
-        color: $color-text-muted;
-        font-size: 1.2rem;
-        max-width: 700px;
+        @include respond-to(mobile) {
+            padding: 0 20px;
+        }
+        // --- Sayfa Başlığı ---
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+
+            .page-title {
+                font-family: $font-serif;
+                font-size: clamp(3rem, 6vw, 4.5rem);
+                color: $color-gold-bright;
+                margin-bottom: 15px;
+                letter-spacing: -1px;
+            }
+
+            .page-desc {
+                font-family: $font-sans;
+                color: $color-text-muted;
+                font-size: 1.1rem;
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.6;
+            }
+        }
+        // --- 1. İstatistik Bölümü (.stats-grid) ---
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); // Varsayılan: Yan yana 4 tane
+            gap: 20px;
+            margin-bottom: 80px;
+            // Senin variable'daki mixin'in muhtemelen respond-to(tablet) şeklindedir
+            @include respond-to(tablet) {
+                grid-template-columns: repeat(2, 1fr); // Tablette 2'li
+            }
+
+            @include respond-to(mobile) {
+                grid-template-columns: 1fr; // Mobilde tekli (alt alta)
+            }
+
+
+            .stat-card {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: $glass-effect;
+                border: 1px solid rgba($color-gold-bright, 0.05);
+                padding: 40px 20px;
+                border-radius: 15px;
+                text-align: center;
+                transition: $transition-smooth;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.06);
+                    border-color: rgba($color-gold-bright, 0.2);
+                    transform: translateY(-5px);
+                }
+
+                .stat-number {
+                    display: block;
+                    font-family: $font-serif;
+                    font-size: 2.5rem;
+                    color: $color-gold-bright;
+                    margin-bottom: 8px;
+                    font-weight: 500;
+                }
+
+                .stat-label {
+                    font-family: $font-sans;
+                    color: $color-text-muted;
+                    font-size: 0.9rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+        // --- 2. Proje Kartları Bölümü (.projects-grid) ---
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); // Yan yana 3 proje kartı
+            gap: 30px;
+            margin-bottom: 100px;
+
+            @include respond-to(tablet) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include respond-to(mobile) {
+                grid-template-columns: 1fr; 
+            }
+
+            .project-card {
+                background: rgba(255, 255, 255, 0.02);
+                border-radius: 20px;
+                overflow: hidden;
+                border: 1px solid rgba($color-gold-bright, 0.05);
+                transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+                position: relative;
+
+                &:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba($color-amber-glow, 0.15); // .hover-glow etkisi
+                    border-color: rgba($color-gold-bright, 0.2);
+
+                    .card-image img {
+                        transform: scale(1.05); 
+                    }
+                }
+
+                .card-image {
+                    height: 250px;
+                    width: 100%;
+                    overflow: hidden;
+                    position: relative;
+
+                    img {
+                        display: block !important;
+                        min-height: 250px !important;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover; 
+                        transition: transform 0.6s ease;
+                    }
+
+                    .category-badge {
+                        position: absolute;
+                        top: 20px;
+                        right: 20px;
+                        background: rgba($color-amber-glow, 0.85);
+                        color: $color-bg-deep;
+                        padding: 6px 16px;
+                        border-radius: 50px;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                        backdrop-filter: blur(5px);
+                    }
+                }
+
+                .card-content {
+                    padding: 25px;
+                    background: linear-gradient(to bottom, rgba($color-bg-deep, 0.3), rgba($color-bg-deep, 0.9));
+
+                    .project-title {
+                        font-family: $font-serif;
+                        font-size: 1.5rem;
+                        color: $color-gold-bright;
+                        margin-bottom: 12px;
+                    }
+
+                    .project-description {
+                        font-family: $font-sans;
+                        color: $color-text-muted;
+                        font-size: 0.95rem;
+                        line-height: 1.5;
+                        margin-bottom: 25px;
+                        height: 3em;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    }
+
+                    .project-meta {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        border-top: 1px solid rgba($color-gold-bright, 0.1);
+                        padding-top: 20px;
+
+                        .meta-item {
+                            display: flex;
+                            align-items: center;
+                            gap: 12px;
+                            color: $color-text-muted;
+                            font-size: 0.85rem;
+
+                            i {
+                                color: $color-amber-glow;
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // --- 3. Alt Bölüm (CTA) ---
+        .cta-section {
+            text-align: center; // Sayfaya tam ortala
+            margin-top: 40px;
+
+            .cta-card {
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+                backdrop-filter: $glass-effect;
+                border: 1px solid rgba($color-gold-bright, 0.05);
+                border-radius: 25px;
+                padding: 70px 40px;
+                position: relative;
+                overflow: hidden;
+
+                .cta-title {
+                    font-family: $font-serif;
+                    font-size: 2.5rem;
+                    color: $color-gold-bright;
+                    margin-bottom: 20px;
+                }
+
+                .cta-desc {
+                    font-family: $font-sans;
+                    color: $color-text-muted;
+                    font-size: 1.1rem;
+                    max-width: 600px;
+                    margin: 0 auto 35px;
+                    line-height: 1.6;
+                }
+
+                .btn-premium {
+                    display: inline-block;
+                    background: linear-gradient(to right, $color-whiskey-light, $color-amber-glow);
+                    color: $color-bg-deep;
+                    padding: 15px 40px;
+                    border-radius: 50px;
+                    font-weight: 700;
+                    text-decoration: none;
+                    transition: all 0.4s ease;
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba($color-amber-glow, 0.3);
+
+                    &:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 25px rgba($color-amber-glow, 0.6);
+                    }
+                }
+            }
+        }
     }
 }

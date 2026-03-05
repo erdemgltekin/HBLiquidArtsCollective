@@ -1,20 +1,208 @@
 @charset "UTF-8";
-@import '../variables';
+@import '../_variables';
 
 .page-container {
-    padding: 180px 0 100px;
+    padding: 160px 0 100px;
     min-height: 100vh;
+    background: transparent;
 
-    .page-title {
-        font-family: $font-serif;
-        font-size: 3.5rem;
-        color: $color-gold-bright;
-        margin-bottom: 20px;
+    .page-header {
+        margin-bottom: 80px;
+
+        .page-title {
+            font-family: $font-serif;
+            font-size: clamp(3.5rem, 8vw, 5rem);
+            color: $color-gold-bright;
+            margin-bottom: 10px;
+        }
+
+        .page-desc {
+            font-family: $font-sans;
+            color: $color-text-muted;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+        }
     }
 
-    .page-desc {
-        color: $color-text-muted;
-        font-size: 1.2rem;
-        max-width: 700px;
+    // --- Founder Section ---
+    .founder-section {
+        margin-bottom: 120px;
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+
+            @include respond-to(tablet) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .founder-image {
+            position: relative;
+
+            img {
+                width: 100%;
+                border-radius: 30px;
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+                filter: grayscale(10%) contrast(110%);
+                transition: $transition-smooth;
+                border: 1px solid rgba($color-gold-bright, 0.1);
+            }
+
+            &:hover img {
+                filter: grayscale(0%) contrast(100%);
+                transform: translateY(-5px);
+            }
+
+            // Dekoratör arka plan glow
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80%;
+                height: 80%;
+                background: radial-gradient(circle, rgba($color-amber-glow, 0.15) 0%, transparent 70%);
+                z-index: -1;
+            }
+        }
+
+        .founder-info {
+            .info-card {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: $glass-effect;
+                border: 1px solid rgba($color-gold-bright, 0.05);
+                border-radius: 25px;
+                padding: 50px;
+                margin-bottom: 40px;
+
+                @include respond-to(mobile) {
+                    padding: 30px;
+                }
+
+                .info-title {
+                    font-family: $font-serif;
+                    color: $color-gold-bright;
+                    font-size: 2.25rem;
+                    margin-bottom: 30px;
+                    border-bottom: 1px solid rgba($color-gold-bright, 0.1);
+                    padding-bottom: 15px;
+                    display: inline-block;
+                }
+
+                .info-text {
+                    p {
+                        color: $color-text-muted;
+                        font-size: 1.05rem;
+                        line-height: 1.8;
+                        margin-bottom: 20px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+
+            .founder-motto {
+                background: linear-gradient(to right, rgba($color-amber-glow, 0.05), transparent);
+                border-left: 4px solid $color-amber-glow;
+                padding: 30px 40px;
+                border-radius: 0 20px 20px 0;
+                margin: 0;
+
+                p {
+                    font-family: $font-serif;
+                    font-style: italic;
+                    font-size: 1.4rem;
+                    color: $color-gold-bright;
+                    line-height: 1.5;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    // --- Achievements Section ---
+    .achievements-section {
+        .section-title {
+            font-family: $font-serif;
+            font-size: 3rem;
+            color: $color-gold-bright;
+            margin-bottom: 60px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+
+            @include respond-to(tablet) {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            @include respond-to(mobile) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba($color-gold-bright, 0.05);
+            border-radius: 20px;
+            padding: 40px 25px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+            &:hover {
+                transform: translateY(-10px);
+                background: rgba(255, 255, 255, 0.05);
+                border-color: rgba($color-gold-bright, 0.2);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+                .icon-box {
+                    transform: scale(1.1) rotate(5deg);
+                    box-shadow: 0 0 30px rgba($color-amber-glow, 0.4);
+                }
+            }
+
+            .icon-box {
+                width: 80px;
+                height: 80px;
+                background: radial-gradient(circle at center, rgba($color-amber-glow, 0.2) 0%, rgba($color-amber-glow, 0.05) 100%);
+                border: 1px solid rgba($color-amber-glow, 0.3);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 30px;
+                transition: $transition-smooth;
+
+                i {
+                    font-size: 2rem;
+                    color: $color-amber-glow;
+                    text-shadow: 0 0 10px rgba($color-amber-glow, 0.5);
+                }
+            }
+
+            .achievement-number {
+                font-family: $font-serif;
+                color: $color-gold-bright;
+                font-size: 1.65rem;
+                margin-bottom: 12px;
+            }
+
+            .achievement-label {
+                color: $color-text-muted;
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin: 0;
+            }
+        }
     }
 }
